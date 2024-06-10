@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.homerunball.inq.dao.InqDao">
+    <select id="count" resultType="int">
+        select count(*) from inq
+    </select>
+
+
+    <select id="select" parameterType="map" resultType="inqDto">
+        select inq_id
+             , c_id
+             , inq_title
+             , inq_content
+             , inq_is_cmpl
+             , inq_dt
+        from inq
+        where pd_id = #{pd_id}
+        order by inq_id desc
+    </select>
+
+    <insert id="insert" parameterType="InqDto">
+        insert into inq
+            (inq_id, c_id, inq_title, inq_content, inq_phn, inq_attch_name, inq_is_sent, inq_is_show, inq_is_cmpl, inq_dt, inq_stat_cd, inq_type_cd )
+        values
+            (#{inq_id}, #{c_id}, #{inq_title}, #{inq_content}, #{inq_phn}, #{inq_attch_name}, #{inq_is_sent}, #{inq_is_show}, #{inq_is_cmpl}, #{inq_dt}, #{inq_stat_cd}, #{inq_type_cd})
+    </insert>
+
+    <delete id="delete">
+        delete from inq where inq_id = #{inq_id} and inq_title = #{inq_title}
+    </delete>
+
+    <delete id="deleteAll">
+        delete from inq
+    </delete>
+
+    <update id="update" parameterType="InqDto">
+        update inq
+        set  inq_title = #{inq_title}
+           , inq_content = #{inq_content}
+           , inq_is_cmpl = #{inq_is_cmpl}
+           , inq_dt = #{inq_dt}
+        where inq_id = #{inq_id} and inq_title = #{inq_title}
+    </update>
+
+
+</mapper>

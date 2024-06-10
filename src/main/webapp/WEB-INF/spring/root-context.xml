@@ -59,12 +59,13 @@
 		<property name="maxUploadSize" value="10500000"/> <!-- 10MB -->
 	</bean>
 
-	<context:component-scan base-package="com.homerunball">
+	<context:component-scan base-package="com.homerunball"/>
 <!--		<context:exclude-filter type="regex" expression="com.homerunball.*"/>-->
-	</context:component-scan>
+
 
 	<!--	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
 <!--		<property name="dataSource" ref="dataSource"/>-->
 <!--	</bean>-->
+	<mvc:annotation-driven/> <!-- Spring Boot 와 프로그램구동이 겹쳐서 추가했어요-->
 	<tx:annotation-driven/>
 </beans>

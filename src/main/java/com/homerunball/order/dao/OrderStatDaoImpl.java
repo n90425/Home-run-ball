@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-public class OrderStatDaoImpl implements com.homerunball.order.dao.OrderStatDao {
+public class OrderStatDaoImpl implements OrderStatDao {
     @Autowired
     private SqlSession session;
 
