@@ -22,9 +22,9 @@
 
     <insert id="insert" parameterType="InqDto">
         insert into inq
-            (inq_id, c_id, inq_title, inq_content, inq_phn, inq_attch_name, inq_is_sent, inq_is_show, inq_is_cmpl, inq_dt, inq_stat_cd, inq_type_cd )
+            (inq_id, pd_id, c_id, inq_title, inq_content, inq_phn, inq_attch_name, inq_is_sent, inq_is_show, inq_is_cmpl, inq_dt, inq_stat_cd, inq_type_cd )
         values
-            (#{inq_id}, #{c_id}, #{inq_title}, #{inq_content}, #{inq_phn}, #{inq_attch_name}, #{inq_is_sent}, #{inq_is_show}, #{inq_is_cmpl}, #{inq_dt}, #{inq_stat_cd}, #{inq_type_cd})
+            (#{inq_id}, #{pd_id}, #{c_id}, #{inq_title}, #{inq_content}, #{inq_phn}, #{inq_attch_name}, #{inq_is_sent}, #{inq_is_show}, #{inq_is_cmpl}, #{inq_dt}, #{inq_stat_cd}, #{inq_type_cd})
     </insert>
 
     <delete id="delete">

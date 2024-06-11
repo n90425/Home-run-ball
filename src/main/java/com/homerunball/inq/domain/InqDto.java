@@ -5,36 +5,36 @@ import java.util.Objects;
 
 public class InqDto {
     private int inq_id;
-    private String pq_id;
+    private String pd_id;
     private int c_id;
     private String inq_title;
     private String inq_content;
-    private String int_phn;
+    private String inq_phn;
     private String inq_attch_name;
     private char inq_is_sent;
     private char inq_is_show;
     private char inq_is_cmpl;
     private Date inq_dt;
     private String inq_stat_cd;
-    private String inq_typq_cd;
+    private String inq_type_cd;
 
     public InqDto(){
     }
 
-    public InqDto(int inq_id, String pq_id, int c_id, String inq_title, String inq_content, String int_phn, String inq_attch_name, char inq_is_sent, char inq_is_show, char inq_is_cmpl, Date inq_dt, String inq_stat_cd, String inq_typq_cd) {
+    public InqDto(int inq_id, String pd_id, int c_id, String inq_title, String inq_content, String inq_phn, String inq_attch_name, char inq_is_sent, char inq_is_show, char inq_is_cmpl, Date inq_dt, String inq_stat_cd, String inq_type_cd) {
         this.inq_id = inq_id;
-        this.pq_id = pq_id;
+        this.pd_id = pd_id;
         this.c_id = c_id;
         this.inq_title = inq_title;
         this.inq_content = inq_content;
-        this.int_phn = int_phn;
+        this.inq_phn = inq_phn;
         this.inq_attch_name = inq_attch_name;
         this.inq_is_sent = inq_is_sent;
         this.inq_is_show = inq_is_show;
         this.inq_is_cmpl = inq_is_cmpl;
         this.inq_dt = inq_dt;
         this.inq_stat_cd = inq_stat_cd;
-        this.inq_typq_cd = inq_typq_cd;
+        this.inq_type_cd = inq_type_cd;
     }
 
 
@@ -48,11 +48,11 @@ public class InqDto {
     }
 
     public String getPq_id() {
-        return pq_id;
+        return pd_id;
     }
 
-    public void setPq_id(String pq_id) {
-        this.pq_id = pq_id;
+    public void setPq_id(String pd_id) {
+        this.pd_id = pd_id;
     }
 
     public int getC_id() {
@@ -80,11 +80,11 @@ public class InqDto {
     }
 
     public String getInt_phn() {
-        return int_phn;
+        return inq_phn;
     }
 
-    public void setInt_phn(String int_phn) {
-        this.int_phn = int_phn;
+    public void setInt_phn(String inq_phn) {
+        this.inq_phn = inq_phn;
     }
 
     public String getInq_attch_name() {
@@ -136,11 +136,11 @@ public class InqDto {
     }
 
     public String getInq_typq_cd() {
-        return inq_typq_cd;
+        return inq_type_cd;
     }
 
-    public void setInq_typq_cd(String inq_typq_cd) {
-        this.inq_typq_cd = inq_typq_cd;
+    public void setInq_typq_cd(String inq_type_cd) {
+        this.inq_type_cd = inq_type_cd;
     }
 
 
@@ -148,18 +148,18 @@ public class InqDto {
     public String toString() {
         return "InqDto{" +
                 "inq_id=" + inq_id +
-                ", pq_id='" + pq_id + '\'' +
+                ", pd_id='" + pd_id + '\'' +
                 ", c_id=" + c_id +
                 ", inq_title='" + inq_title + '\'' +
                 ", inq_content='" + inq_content + '\'' +
-                ", int_phn='" + int_phn + '\'' +
+                ", inq_phn='" + inq_phn + '\'' +
                 ", inq_attch_name='" + inq_attch_name + '\'' +
                 ", inq_is_sent=" + inq_is_sent +
                 ", inq_is_show=" + inq_is_show +
                 ", inq_is_cmpl=" + inq_is_cmpl +
                 ", inq_dt=" + inq_dt +
                 ", inq_stat_cd='" + inq_stat_cd + '\'' +
-                ", inq_typq_cd='" + inq_typq_cd + '\'' +
+                ", inq_type_cd='" + inq_type_cd + '\'' +
                 '}';
     }
 
@@ -168,11 +168,11 @@ public class InqDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InqDto inqDto = (InqDto) o;
-        return inq_id == inqDto.inq_id && c_id == inqDto.c_id && inq_is_sent == inqDto.inq_is_sent && inq_is_show == inqDto.inq_is_show && inq_is_cmpl == inqDto.inq_is_cmpl && Objects.equals(pq_id, inqDto.pq_id) && Objects.equals(inq_title, inqDto.inq_title) && Objects.equals(inq_content, inqDto.inq_content) && Objects.equals(int_phn, inqDto.int_phn) && Objects.equals(inq_attch_name, inqDto.inq_attch_name) && Objects.equals(inq_dt, inqDto.inq_dt) && Objects.equals(inq_stat_cd, inqDto.inq_stat_cd) && Objects.equals(inq_typq_cd, inqDto.inq_typq_cd);
+        return inq_id == inqDto.inq_id && c_id == inqDto.c_id && inq_is_sent == inqDto.inq_is_sent && inq_is_show == inqDto.inq_is_show && inq_is_cmpl == inqDto.inq_is_cmpl && Objects.equals(pd_id, inqDto.pd_id) && Objects.equals(inq_title, inqDto.inq_title) && Objects.equals(inq_content, inqDto.inq_content) && Objects.equals(inq_phn, inqDto.inq_phn) && Objects.equals(inq_attch_name, inqDto.inq_attch_name) && Objects.equals(inq_dt, inqDto.inq_dt) && Objects.equals(inq_stat_cd, inqDto.inq_stat_cd) && Objects.equals(inq_type_cd, inqDto.inq_type_cd);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(inq_id, pq_id, c_id, inq_title, inq_content, int_phn, inq_attch_name, inq_is_sent, inq_is_show, inq_is_cmpl, inq_dt, inq_stat_cd, inq_typq_cd);
+        return Objects.hash(inq_id, pd_id, c_id, inq_title, inq_content, inq_phn, inq_attch_name, inq_is_sent, inq_is_show, inq_is_cmpl, inq_dt, inq_stat_cd, inq_type_cd);
     }
 }
