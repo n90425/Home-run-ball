@@ -28,7 +28,7 @@
     </insert>
 
     <delete id="delete">
-        delete from inq where inq_id = #{inq_id} and inq_title = #{inq_title}
+        delete from inq where inq_id = #{inq_id} and c_id = #{c_id}
     </delete>
 
     <delete id="deleteAll">

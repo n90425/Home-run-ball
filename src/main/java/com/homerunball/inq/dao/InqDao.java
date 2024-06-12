@@ -10,9 +10,9 @@ public interface InqDao {
 
     int insert(InqDto inqDto) throws Exception;
 
-    int delete(int pd_id) throws Exception;
+    int delete(int inq_id, int c_id) throws Exception;
 
-    int update(int inq_id) throws Exception;
+    int update(InqDto inqDto) throws Exception;
 
     int deleteAll() throws Exception;
 }

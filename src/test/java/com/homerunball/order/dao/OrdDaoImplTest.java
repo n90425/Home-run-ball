@@ -68,7 +68,7 @@ public class OrdDaoImplTest {
 
 
         /*2번 데이터*/
-        OrdDto ord2 = new OrdDto(100012, new Date(), "00주문완료", 1, 1, 30000, 30000);
+        OrdDto ord2 = new OrdDto(100011, new Date(), "00주문완료", 1, 1, 30000, 30000);
         assertTrue(ordDao.insert(ord2) == 1);
 
         /* 한 고객(100012)이 주문을 각자 2번하고, od_id (주문번호는) 다르게 생성된다 */

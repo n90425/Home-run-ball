@@ -31,16 +31,17 @@ public class InqDaoImpl implements InqDao {
     }
 
     @Override
-    public int delete(int pd_id) throws Exception {
+    public int delete(int inq_id,int c_id) throws Exception {
         Map map = new HashMap();
-        map.put("pd_id", pd_id);
+        map.put("inq_id", inq_id);
+        map.put("c_id", c_id);
         return session.delete(namespace+"delete", map);
     }
 
 
     @Override
-    public int update(int inq_id) throws Exception {
-        return session.update(namespace+"update", inq_id);
+    public int update(InqDto inqDto) throws Exception {
+        return session.update(namespace+"update", inqDto);
     }
 
     @Override
