@@ -1,10 +1,12 @@
 package com.homerunball.inq.dao;
 
 import com.homerunball.inq.domain.InqDto;
+import com.homerunball.order.domain.OrdDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -23,6 +25,11 @@ public class InqDaoImpl implements InqDao {
         Map map = new HashMap();
         map.put("pd_id", pd_id);
         return session.selectOne(namespace + "select", map);
+    }
+
+    @Override
+    public List<InqDto> selectAll() throws Exception {
+        return session.selectList(namespace+"selectAll");
     }
 
     @Override

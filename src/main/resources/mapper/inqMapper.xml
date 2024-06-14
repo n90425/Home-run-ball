@@ -20,6 +20,18 @@
         order by inq_id desc
     </select>
 
+    <select id="selectAll" resultType="inqDto">
+        select inq_id
+             , c_id
+             , inq_title
+             , inq_content
+             , inq_is_cmpl
+             , inq_dt
+        from inq
+        where pd_id = #{pd_id}
+        order by inq_id desc
+    </select>
+
     <insert id="insert" parameterType="InqDto">
         insert into inq
             (inq_id, pd_id, c_id, inq_title, inq_content, inq_phn, inq_attch_name, inq_is_sent, inq_is_show, inq_is_cmpl, inq_dt, inq_stat_cd, inq_type_cd )
