@@ -233,42 +233,42 @@
 </div>
 
 <%--제품 문의(구현 안함 3차때 추후 개발예정)--%>
-<div class="QnAContainer" id="QnAContainer">
-    <h2>제품문의</h2>
-    <table class="QnATable" name="QnATable">
-        <tr>
-            <td class="number">일련번호</td>
-            <td class="title">제목</td>
-            <td class="writer">작성자</td>
-            <td class="regdate">등록일</td>
-        </tr>
+<%--<div class="QnAContainer" id="QnAContainer">--%>
+<%--    <h2>제품문의</h2>--%>
+<%--    <table class="QnATable" name="QnATable">--%>
+<%--        <tr>--%>
+<%--            <td class="number">일련번호</td>--%>
+<%--            <td class="title">제목</td>--%>
+<%--            <td class="writer">작성자</td>--%>
+<%--            <td class="regdate">등록일</td>--%>
+<%--        </tr>--%>
 
-<%--        <tr><th>일련번호</th><th>내용</th><th>작성자</th><th>작성일자</th><th>답변여부</th></tr>--%>
-<%--        <tr><td>10</td><td>DP 제품 할인은 안 하나요?</td><td>김지훈</td><td>2024.05.27</td><td>답변대기중</td></tr>--%>
-<%--        <tr><td>9</td><td>배송 문의드립니다. 급해서 그런데 혹시 오늘 회사에 방문하면 제품을 바로 받을수 있을까요?</td><td>김지훈</td><td>2024.05.27</td><td>답변대기중</td></tr>--%>
-<%--        <tr><td>8</td><td>배송 문의드립니다. 오늘 시키면 언제 제품을 받을수 있을까요?</td><td>김지훈</td><td>2024.05.26</td><td>답변대기중</td></tr>--%>
-<%--        <tr><td>7</td><td>AS보증 기간이 어떻게 되나요?</td><td>김지훈</td><td>2024.05.26</td><td>답변대기중</td></tr>--%>
-<%--        <tr><td>6</td><td>무게가 어떻게 되나요?</td><td>김지훈</td><td>2024.05.26</td><td>답변대기중</td></tr>--%>
-<%--        <tr><td>5</td><td>단체 주문도 가능할까요?</td><td>김지훈</td><td>2024.05.25</td><td>답변완료✔</td></tr>--%>
-<%--        <tr><td>4</td><td>색상 문의 드립니다.</td><td>김지훈</td><td>2024.05.24</td><td>답변완료✔</td></tr>--%>
-<%--        <tr><td>3</td><td>사이즈 문의 드립니다.</td><td>김지훈</td><td>2024.05.23</td><td>답변완료✔</td></tr>--%>
-<%--        <tr><td>2</td><td>제품의 추가 입고는 언제되나요?</td><td>김지훈</td><td>2024.05.22</td><td>답변대기중</td></tr>--%>
-<%--        <tr><td>1</td><td>제품 문의 드립니다.</td><td>김지훈</td><td>2024.05.21</td><td>답변완료✔</td></tr>--%>
-    </table>
-    <p> <a href="">&lt</a>
-        <a href="">1</a>
-        <a href="">2</a>
-        <a href="">3</a>
-        <a href="">4</a>
-        <a href="">5</a>
-        <a href="">6</a>
-        <a href="">7</a>
-        <a href="">8</a>
-        <a href="">9</a>
-        <a href="">10</a>
-        <a href="">&gt</a></p>
-    <button class="writeQnABtn" onclick="writeQnABtn()">제품문의작성</button>
-</div>
+<%--&lt;%&ndash;        <tr><th>일련번호</th><th>내용</th><th>작성자</th><th>작성일자</th><th>답변여부</th></tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <tr><td>10</td><td>DP 제품 할인은 안 하나요?</td><td>김지훈</td><td>2024.05.27</td><td>답변대기중</td></tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <tr><td>9</td><td>배송 문의드립니다. 급해서 그런데 혹시 오늘 회사에 방문하면 제품을 바로 받을수 있을까요?</td><td>김지훈</td><td>2024.05.27</td><td>답변대기중</td></tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <tr><td>8</td><td>배송 문의드립니다. 오늘 시키면 언제 제품을 받을수 있을까요?</td><td>김지훈</td><td>2024.05.26</td><td>답변대기중</td></tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <tr><td>7</td><td>AS보증 기간이 어떻게 되나요?</td><td>김지훈</td><td>2024.05.26</td><td>답변대기중</td></tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <tr><td>6</td><td>무게가 어떻게 되나요?</td><td>김지훈</td><td>2024.05.26</td><td>답변대기중</td></tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <tr><td>5</td><td>단체 주문도 가능할까요?</td><td>김지훈</td><td>2024.05.25</td><td>답변완료✔</td></tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <tr><td>4</td><td>색상 문의 드립니다.</td><td>김지훈</td><td>2024.05.24</td><td>답변완료✔</td></tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <tr><td>3</td><td>사이즈 문의 드립니다.</td><td>김지훈</td><td>2024.05.23</td><td>답변완료✔</td></tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <tr><td>2</td><td>제품의 추가 입고는 언제되나요?</td><td>김지훈</td><td>2024.05.22</td><td>답변대기중</td></tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <tr><td>1</td><td>제품 문의 드립니다.</td><td>김지훈</td><td>2024.05.21</td><td>답변완료✔</td></tr>&ndash;%&gt;--%>
+<%--    </table>--%>
+<%--    <p> <a href="">&lt</a>--%>
+<%--        <a href="">1</a>--%>
+<%--        <a href="">2</a>--%>
+<%--        <a href="">3</a>--%>
+<%--        <a href="">4</a>--%>
+<%--        <a href="">5</a>--%>
+<%--        <a href="">6</a>--%>
+<%--        <a href="">7</a>--%>
+<%--        <a href="">8</a>--%>
+<%--        <a href="">9</a>--%>
+<%--        <a href="">10</a>--%>
+<%--        <a href="">&gt</a></p>--%>
+<%--    <button class="writeQnABtn" onclick="writeQnABtn()">제품문의작성</button>--%>
+<%--</div>--%>
 <jsp:include page="footer.jsp" flush="false" />
 </body>
 <script>

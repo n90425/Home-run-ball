@@ -24,11 +24,12 @@ public class InqController {
     @GetMapping("/detail/inq")
     public String inq(String pd_id, HttpServletRequest request, Model m) {
         try {
-            System.out.println(pd_id);
-            InqDto inq = inqDao.select(pd_id);
-            System.out.println(inq.getInq_id());
-            System.out.println("왜 출력안돼");
-            m.addAttribute("inq", inq);
+            List<InqDto> list = inqDao.selectAll();
+
+            System.out.println(list);
+
+            m.addAttribute("list", list);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
