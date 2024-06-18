@@ -28,8 +28,10 @@ public class InqDaoImpl implements InqDao {
     }
 
     @Override
-    public List<InqDto> selectAll() throws Exception {
-        return session.selectList(namespace+"selectAll");
+    public List<InqDto> selectAll(String pd_id) throws Exception {
+        Map map = new HashMap();
+        map.put("pd_id", pd_id);
+        return session.selectList(namespace+"selectAll",map);
     }
 
     @Override

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +29,7 @@
                 <td><span>${inqDto.inq_id}</span></td>
                 <td>${inqDto.inq_title}</td>
                 <td>날돈</td>
-                <td>123</td>
+                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${inqDto.inq_dt}"/></td>
                 <td>답변대기중</td>
             </tr>
         </c:forEach>

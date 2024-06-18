@@ -231,6 +231,8 @@
         <a href="">&gt</a></p>
     <button class="writeReviewBtn" onclick="writeReviewBtn()">리뷰작성</button>
 </div>
+<%--<%@include file="inquiry.jsp"%>--%>
+<jsp:include page="inquiry.jsp" flush="false"/>
 
 <%--제품 문의(구현 안함 3차때 추후 개발예정)--%>
 <%--<div class="QnAContainer" id="QnAContainer">--%>

@@ -1,5 +1,7 @@
 package com.homerunball.product.customer.controller;
 
+import com.homerunball.inq.dao.InqDao;
+import com.homerunball.inq.domain.InqDto;
 import com.homerunball.product.customer.domain.ProductViewDto;
 import com.homerunball.product.customer.domain.StockViewDto;
 import com.homerunball.product.customer.service.ProductViewService;
@@ -22,6 +24,8 @@ public class ProductViewController {
 
     @Autowired
     ProductViewService productViewService;
+    @Autowired
+    InqDao inqDao;
 
     @GetMapping("/detail")
     public String item(HttpServletRequest request, Model m) {
@@ -35,6 +39,9 @@ public class ProductViewController {
             StockViewDto stkOptInfo = productViewService.readStkOptInfo(pd_id, pd_clsf_cd);
             List<StockViewDto> listStkOpt = productViewService.getListStkId(pd_id);
 
+            /* 문의 list 가져오기 (안중섭) */
+            List<InqDto> list = inqDao.selectAll(pd_id);
+
             //pd_id를 받아와서 db에 해당 제품이 존재하는지 조회
             boolean exists = listPrd.stream().anyMatch(product -> product.getPd_id().equals(pd_id));
             //제품이 존재하고, pd_id와 일치하는 제품이 있는경우 제품에 필요한 정보를 model로 넘기고 제품상세로 이동
@@ -43,6 +50,8 @@ public class ProductViewController {
                 m.addAttribute("stkInfo", stkInfo);
                 m.addAttribute("stkOptInfo", stkOptInfo);
                 m.addAttribute("listStkOpt", listStkOpt);
+
+                m.addAttribute("list", list);
                 return "productDetail";
             } else {
                 // 제품이 존재하지 않거나, pd_id가 일치하지 않는 경우 고객 에러페이지로 이동
