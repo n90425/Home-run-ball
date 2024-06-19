@@ -10,13 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Title</title>
 </head>
+
 <body>
 <div class="QnAContainer" id="QnAContainer">
     <h2>제품문의</h2>
     <table class="QnATable" name="QnATable">
         <thead>
         <tr>
-            <th class="number">순번</th>
+            <th class="number">번호</th>
             <th class="title">제목</th>
             <th class="writer">작성자</th>
             <th class="regdate">등록일</th>
@@ -47,7 +48,7 @@
         <a href="">9</a>
         <a href="">10</a>
         <a href="">&gt</a></p>
-    <button class="writeQnABtn" onclick="writeQnABtn()">제품문의작성</button>
+    <a href="/product/inqWrite" class="writeQnABtn">문의작성</a>
 </div>
 </body>
 </html>

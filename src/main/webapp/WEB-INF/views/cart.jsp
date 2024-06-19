@@ -19,8 +19,6 @@
     <link href="<c:url value='/css/search.css'/>" type="text/css" rel="stylesheet"/>
     <link href="<c:url value='/css/footer.css'/>" type="text/css" rel="stylesheet"/>
     <link href="<c:url value='/css/nav.css'/>" type="text/css" rel="stylesheet"/>
-    <link rel="icon" type="image/x-icon"
-          href="/img/icon_logo.png">
 
     <title>장바구니</title>
 </head>

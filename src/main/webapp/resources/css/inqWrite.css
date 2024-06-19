@@ -1,0 +1,148 @@
+img, fieldset, button {
+    border: 0 none;
+}
+
+#contentWrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#contentWrap{
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inq table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    word-wrap: break-word;
+    word-break: keep-all;
+}
+
+.inq colgroup {
+    display: table-column-group;
+    unicode-bidi: isolate;
+}
+
+.inq tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+.inq tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+.inq th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+    unicode-bidi: isolate;
+}
+
+.inq td {
+    display: table-cell;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+}
+
+.inq_bbs-table-write tbody th, .inq_bbs-table-write tbody td {
+    padding: 6px 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    color: #9d9d9d;
+    font-weight: normal;
+    font-size: 11px;
+}
+
+#bbsData input {
+    height: 25px;
+    background: #F6F6F6;
+}
+
+.inq_bbs-table-write {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.inq_bbs-table-write .inq_input_style {
+    width: 180px;
+    height: 30px;
+}
+
+.inq_MS_input_txt {
+    margin: 2px 5px 2px 0px;
+}
+
+.inq_bbs-table-write .inq_title {
+    line-height: 25px;
+    text-align: left;
+}
+
+#bbsData input {
+    height: 25px;
+    background: #F6F6F6;
+}
+
+.inq_bbs-table-write .inq_input_style2 {
+    width: 520px;
+    height: 30px;
+}
+
+.inq_MS_input_txt {
+    margin: 2px 5px 2px 0px;
+}
+
+.inq_MS_input_txt {
+    margin-right: 5px;
+    padding: 2px 0 0 2px;
+    line-height: 17px;
+    border: 1px solid #dcdcdc;
+}
+
+.inq button, .inq input, .inq select, .inq textarea, .inq a {
+    vertical-align: middle;
+}
+
+#inq_bbsData .inq_bbs-link-btm {
+    margin-top: 10px;
+    text-align: right;
+    padding: 21px 0;
+}
+
+#inq_content {
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+.inq_bbs-link-btm {
+    margin-top: 10px;
+    text-align: right;
+    padding: 21px 0;
+}
+
+.inq_button02-wh {
+    padding: 10px 43px;
+    background-color: #fff;
+    border: 1px solid #000;
+    font-size: 12px;
+}
+
+.inq a {
+    color: #111;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    select-dummy: expression(this.hideFocus=true);
+}
