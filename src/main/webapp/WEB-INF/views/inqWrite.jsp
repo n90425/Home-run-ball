@@ -33,8 +33,28 @@
         <div id="contentWrap">
                 <div class="inq_bbs-table-write" id="inq_content">
                 <fieldset>
+
+                    <script>
+                        let msg = "${msg}";
+                        if(msg=="WRT_ERR") alert("등록에 실패하였습니다.")
+                    </script>
+                    <div class="readpage">
+                        <h1>게시판 ${mode=="new" ? "글쓰기" : "읽기"}</h1>
+                        <form action="/ch3/board/board" id="form">
+                            <input name="bno" type="hidden" value="${boardDto.bno}" readonly="readonly" >
+                            <input name="title" type="text" value="${boardDto.title}" placeholder="제목을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}/>
+                            <textarea name="content" rows="20" cols="100" placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>${boardDto.content}</textarea>
+                            <div>
+                                <button type="button" id="writeBtn">글쓰기</button>
+                                <button type="button" id="modifyBtn">수정</button>
+                                <button type="button" id="deleteBtn">삭제</button>
+                                <button type="button" id="listBtn">목록</button>
+                            </div>
+                        </form>
+                    </div>
+
                     <table summary="">
-                        <caption>게시판 글쓰기</caption>
+                        <caption>게시판 ${mode=="new" ? "작성" : "읽기"}</caption>
                         <colgroup>
                             <col width="95" />
                             <col width="190" />
@@ -42,11 +62,13 @@
                             <col />
                         </colgroup>
                         <tbody>
+                        <form action="/product/inqWrite" id="inqform">
                         <tr>
                             <th><div>NAME</div></th>
                             <td>
                                 <div>
-                                    <input id='inq_bw_input_writer' type='text' name='hname'  class="inq_MS_input_txt input_style"  />
+                                    <input type='hidden' name='c_name' value="${inqDto.c_id}"  />
+                                    <input id='inq_bw_input_writer' type='text' name='c_name' value=""  class="inq_MS_input_txt input_style"  />
                                 </div>
                             </td>
                             <th><div></div></th>
@@ -63,8 +85,8 @@
                             </th>
                             <td colspan="3">
                                 <div class="inq_title">
-                                    <input id='inq_bw_input_subject'  disabled='disabled'   class="inq_MS_input_txt inq_input_style2" type='text' name='subject' value='상품관련 문의 드립니다' />
-                                    <input type='checkbox' name='tag' value='ok'  /> HTML태그 허용<br>
+                                    <input id='inq_bw_input_subject'  class="inq_MS_input_txt inq_input_style2" type='text' name='subject'  placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>
+<%--                                    <input type='checkbox' name='tag' value='ok'  /> HTML태그 허용<br>--%>
                                 </div>
                             </td>
                         </tr>
@@ -74,7 +96,7 @@
                             </th>
                             <td colspan="3">
                                 <div>
-                                    <textarea id='inq_MS_text_content' name='content' wrap="off" onfocus='clear_content()'  class="inq_MS_input_txt" style='font-family:굴림체;' ></textarea>
+                                    <textarea id='inq_MS_text_content' name='content' wrap="off" onfocus='clear_content()'  class="inq_MS_input_txt" style='font-family:굴림체;'    placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>${inqDto.inq_content}</textarea>
                                     <iframe frameborder="0" scrolling="no" src="SmartEditor2Skin.html?type=i&amp;clearw=Y&amp;writeword_use=N" style="width: 100%; height: 359px;"></iframe>
                                     <input type='hidden' name='mobile_content_type' value='' />
                                 </div>
@@ -93,18 +115,36 @@
                                 </div>
                             </td>
                         </tr>
-
+                        </form>
                         </tbody>
                     </table>
                 </fieldset>
 
                 <div class="inq_bbs-link-btm">
-                    <a class="inq_button02-wh" href="JavaScript:send();">등록</a>
-                    <a class="inq_button02-wh" href="/board/board.html?code=xexymix_board1&page=1&board_cate=&s_id=&stext=&ssubject=&scontent=&shname=&sbrand=&sgid=&branduid=2066959">목록보기</a>
+                    <button class="inq_button02-wh" type="button" id="writeBtn">글쓰기</button>
+<%--                    <button class="inq_button02-wh" type="button" id="modifyBtn">수정</button>--%>
+<%--                    <button class="inq_button02-wh" type="button" id="deleteBtn">삭제</button>--%>
+<%--                    <button class="inq_button02-wh" type="button" id="listBtn">목록</button>--%>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#listBtn').on("click", function(){
+                alert("listBtn click")
+                location.href="<c:url value="product/inqWrite"/>";
+            })
+        })
+
+        $('#writeBtn').on("click", function (){
+            let form = $('form');
+            form.attr("action", "<c:url value='/product/inqWrite'/>");
+            form.attr("metod", "post");
+            form.submit();
+        })
+    </script>
 </body>
+
 <jsp:include page="footer.jsp"/>
 </html>

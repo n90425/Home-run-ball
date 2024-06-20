@@ -28,7 +28,8 @@
         <c:forEach var="inqDto" items="${list}">
             <tr>
                 <td><span>${inqDto.inq_id}</span></td>
-                <td>${inqDto.inq_title}</td>
+<%--                <td>${inqDto.inq_title}</td>--%>
+                <td><a href="<c:url value='/product/read?inq_id=${inqDto.inq_id}'/>">${inqDto.inq_title}</a></td>
                 <td>날돈</td>
                 <td><fmt:formatDate pattern="yyyy-MM-dd" value="${inqDto.inq_dt}"/></td>
                 <td>답변대기중</td>

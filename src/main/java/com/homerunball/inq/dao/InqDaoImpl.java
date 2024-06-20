@@ -21,10 +21,8 @@ public class InqDaoImpl implements InqDao {
     }
 
     @Override
-    public InqDto select(String pd_id) throws Exception{
-        Map map = new HashMap();
-        map.put("pd_id", pd_id);
-        return session.selectOne(namespace + "select", map);
+    public InqDto select(Integer inq_id) throws Exception{
+        return session.selectOne(namespace + "select", inq_id);
     }
 
     @Override

@@ -8,15 +8,16 @@
     </select>
 
 
-    <select id="select" parameterType="map" resultType="inqDto">
+    <select id="select" parameterType="Integer" resultType="InqDto">
         select inq_id
+             , pd_id
              , c_id
              , inq_title
              , inq_content
              , inq_is_cmpl
              , inq_dt
         from inq
-        where pd_id = #{pd_id}
+        where inq_id = #{inq_id}
         order by inq_id desc
     </select>
 
