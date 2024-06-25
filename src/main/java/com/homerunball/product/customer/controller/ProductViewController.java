@@ -40,7 +40,9 @@ public class ProductViewController {
             List<StockViewDto> listStkOpt = productViewService.getListStkId(pd_id);
 
             /* 문의 list 가져오기 (안중섭) */
-            List<InqDto> list = inqDao.selectAll(pd_id);
+            List<InqDto> inqList = inqDao.selectAll(pd_id);
+//            System.out.println("inqList" + inqList);
+
 
             //pd_id를 받아와서 db에 해당 제품이 존재하는지 조회
             boolean exists = listPrd.stream().anyMatch(product -> product.getPd_id().equals(pd_id));
@@ -51,7 +53,8 @@ public class ProductViewController {
                 m.addAttribute("stkOptInfo", stkOptInfo);
                 m.addAttribute("listStkOpt", listStkOpt);
 
-                m.addAttribute("list", list);
+                m.addAttribute("pd_id", pd_id);
+                m.addAttribute("inqList", inqList);
                 return "productDetail";
             } else {
                 // 제품이 존재하지 않거나, pd_id가 일치하지 않는 경우 고객 에러페이지로 이동
@@ -94,28 +97,28 @@ public class ProductViewController {
     @GetMapping("/search")
     @ResponseBody
     public ResponseEntity<?> search(@RequestParam String keyword) {
-      try {
-          List<Map<String, Object>> searchResultsList = productViewService.getByKeyword(keyword);
-          return new ResponseEntity<>(searchResultsList, HttpStatus.OK);
-      } catch (Exception e) {
-          e.printStackTrace();
-          Map<String, String> errorResponse = new HashMap<>();
-          errorResponse.put("errorMessage", "검색중에 오류가 발생했습니다. 다시 시도해주세요.");
-          return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
-      }
+        try {
+            List<Map<String, Object>> searchResultsList = productViewService.getByKeyword(keyword);
+            return new ResponseEntity<>(searchResultsList, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("errorMessage", "검색중에 오류가 발생했습니다. 다시 시도해주세요.");
+            return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     /* 제품 타입에 따른 검색 */
     @GetMapping("/byType")
     public String findByType(@RequestParam("pd_type_cd") String pd_type_cd, Model model) {
-      try {
-        List<Map<String, Object>> result = productViewService.getByType(pd_type_cd);
-          model.addAttribute("result", result);
-      } catch (Exception e) {
-          /* TODO : 처리를 해야하지 않나 */
-        e.printStackTrace();
-      }
-      return "productSearchList";
+        try {
+            List<Map<String, Object>> result = productViewService.getByType(pd_type_cd);
+            model.addAttribute("result", result);
+        } catch (Exception e) {
+            /* TODO : 처리를 해야하지 않나 */
+            e.printStackTrace();
+        }
+        return "productSearchList";
     }
 
     @GetMapping("/byTypeMore")
@@ -132,4 +135,3 @@ public class ProductViewController {
         }
     }
 }
-

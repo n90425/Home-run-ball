@@ -25,13 +25,14 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="inqDto" items="${list}">
+
+        <c:forEach var="inq" items="${inqList}">
             <tr>
-                <td><span>${inqDto.inq_id}</span></td>
-<%--                <td>${inqDto.inq_title}</td>--%>
-                <td><a href="<c:url value='/product/read?inq_id=${inqDto.inq_id}'/>">${inqDto.inq_title}</a></td>
-                <td>날돈</td>
-                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${inqDto.inq_dt}"/></td>
+                <td><span>${inq.inq_id}</span></td>
+                    <%--                <td>${inqDto.inq_title}</td>--%>
+                <td><a href="/product/read?pd_id=${pd_id}&inq_id=${inq.inq_id}">${inq.inq_title}</a></td>
+                <td>${inq.c_name}</td>
+                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${inq.inq_dt}"/></td>
                 <td>답변대기중</td>
             </tr>
         </c:forEach>
@@ -49,7 +50,7 @@
         <a href="">9</a>
         <a href="">10</a>
         <a href="">&gt</a></p>
-    <a href="/product/inqWrite" class="writeQnABtn">문의작성</a>
+    <a href="/product/inqWrite?pd_id=${pd_id}" class="writeQnABtn">문의작성</a>
 </div>
 </body>
 </html>

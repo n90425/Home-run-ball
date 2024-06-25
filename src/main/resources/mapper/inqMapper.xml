@@ -8,36 +8,48 @@
     </select>
 
 
-    <select id="select" parameterType="Integer" resultType="InqDto">
-        select inq_id
-             , pd_id
-             , c_id
-             , inq_title
-             , inq_content
-             , inq_is_cmpl
-             , inq_dt
+    <!-- 선택된 문의게시판에서 글 읽어오기 -->
+    <select id="select" parameterType="map" resultType="InqDto">
+        select inq.inq_id
+             , inq.pd_id
+             , inq.c_id
+             , inq.inq_title
+             , inq.inq_content
+             , inq.inq_phn
+             , inq.inq_attch_name
+             , inq.inq_is_sent
+             , inq.inq_is_show
+             , inq.inq_is_cmpl
+             , inq.inq_dt
+             , inq.inq_stat_cd
+             , inq.inq_type_cd
+             , cust.c_name
         from inq
-        where inq_id = #{inq_id}
-        order by inq_id desc
+        join cust on inq.c_id = cust.c_id
+        where inq.inq_id = #{inq_id} and inq.pd_id = #{pd_id}
     </select>
 
-    <select id="selectAll" resultType="InqDto">
-        select inq_id
-             , c_id
-             , inq_title
-             , inq_content
-             , inq_is_cmpl
-             , inq_dt
+    <!-- 제품상세 페이지에서 전체 가져오기 -->
+    <select id="selectAll" parameterType="String" resultType="InqDto">
+        select inq.inq_id
+             , inq.pd_id
+             , inq.c_id
+             , inq.inq_title
+             , inq.inq_content
+             , inq.inq_is_cmpl
+             , inq.inq_dt
+             , cust.c_name
         from inq
-        where pd_id = #{pd_id}
+        join cust on inq.c_id = cust.c_id
+        where inq.pd_id = #{pd_id}
         order by inq_id desc
     </select>
 
     <insert id="insert" parameterType="InqDto">
         insert into inq
-            (inq_id, pd_id, c_id, inq_title, inq_content, inq_phn, inq_attch_name, inq_is_sent, inq_is_show, inq_is_cmpl, inq_dt, inq_stat_cd, inq_type_cd )
+        (inq_id, pd_id, c_id, inq_title, inq_content,  inq_dt)
         values
-            (#{inq_id}, #{pd_id}, #{c_id}, #{inq_title}, #{inq_content}, #{inq_phn}, #{inq_attch_name}, #{inq_is_sent}, #{inq_is_show}, #{inq_is_cmpl}, #{inq_dt}, #{inq_stat_cd}, #{inq_type_cd})
+            (#{inq_id}, #{pd_id}, #{c_id}, #{inq_title}, #{inq_content}, #{inq_dt})
     </insert>
 
     <delete id="delete">
@@ -51,9 +63,9 @@
     <update id="update" parameterType="InqDto">
         update inq
         set  inq_title = #{inq_title}
-           , inq_content = #{inq_content}
-           , inq_is_cmpl = #{inq_is_cmpl}
-           , inq_dt = #{inq_dt}
+          , inq_content = #{inq_content}
+          , inq_is_cmpl = #{inq_is_cmpl}
+          , inq_dt = #{inq_dt}
         where inq_id = #{inq_id} and inq_title = #{inq_title}
     </update>
 

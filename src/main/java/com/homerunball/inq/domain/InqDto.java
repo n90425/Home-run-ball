@@ -17,11 +17,14 @@ public class InqDto {
     private Date inq_dt;
     private String inq_stat_cd;
     private String inq_type_cd;
+    private String c_name;
+
+
 
     public InqDto(){
     }
 
-    public InqDto(int inq_id, String pd_id, int c_id, String inq_title, String inq_content, String inq_phn, String inq_attch_name, char inq_is_sent, char inq_is_show, char inq_is_cmpl, Date inq_dt, String inq_stat_cd, String inq_type_cd) {
+    public InqDto(int inq_id, String pd_id, int c_id, String inq_title, String inq_content, String inq_phn, String inq_attch_name, char inq_is_sent, char inq_is_show, char inq_is_cmpl, Date inq_dt, String inq_stat_cd, String inq_type_cd, String c_name) {
         this.inq_id = inq_id;
         this.pd_id = pd_id;
         this.c_id = c_id;
@@ -35,6 +38,7 @@ public class InqDto {
         this.inq_dt = inq_dt;
         this.inq_stat_cd = inq_stat_cd;
         this.inq_type_cd = inq_type_cd;
+        this.c_name = c_name;
     }
 
 
@@ -47,11 +51,11 @@ public class InqDto {
         this.inq_id = inq_id;
     }
 
-    public String getPq_id() {
+    public String getPd_id() {
         return pd_id;
     }
 
-    public void setPq_id(String pd_id) {
+    public void setPd_id(String pd_id) {
         this.pd_id = pd_id;
     }
 
@@ -143,6 +147,14 @@ public class InqDto {
         this.inq_type_cd = inq_type_cd;
     }
 
+    public String getC_name() {
+        return c_name;
+    }
+
+    public void setC_name(String c_name) {
+        this.c_name = c_name;
+    }
+
 
     @Override
     public String toString() {
@@ -160,6 +172,7 @@ public class InqDto {
                 ", inq_dt=" + inq_dt +
                 ", inq_stat_cd='" + inq_stat_cd + '\'' +
                 ", inq_type_cd='" + inq_type_cd + '\'' +
+                ", c_name='" + c_name + '\'' +
                 '}';
     }
 

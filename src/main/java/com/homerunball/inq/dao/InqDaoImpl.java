@@ -20,16 +20,20 @@ public class InqDaoImpl implements InqDao {
         return session.selectOne(namespace+"count");
     }
 
-    @Override
-    public InqDto select(Integer inq_id) throws Exception{
-        return session.selectOne(namespace + "select", inq_id);
-    }
 
+    /*선택된 문의게시판에서 글 읽어오기*/
     @Override
-    public List<InqDto> selectAll(String pd_id) throws Exception {
+    public InqDto select(String pd_id, Integer inq_id) throws Exception{
         Map map = new HashMap();
         map.put("pd_id", pd_id);
-        return session.selectList(namespace+"selectAll",map);
+        map.put("inq_id", inq_id);
+        return session.selectOne(namespace + "select", map);
+    }
+
+    /*제품상세 페이지에서 전체 가져오기*/
+    @Override
+    public List<InqDto> selectAll(String pd_id) throws Exception {
+        return session.selectList(namespace+"selectAll",pd_id);
     }
 
     @Override

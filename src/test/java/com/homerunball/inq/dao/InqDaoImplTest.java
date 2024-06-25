@@ -26,11 +26,11 @@ public class InqDaoImplTest {
         inqDao.deleteAll();
         assertTrue(inqDao.count() == 0);
 
-        InqDto inq = new InqDto(1,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq = new InqDto(1,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","asdf");
         assertTrue(inqDao.insert(inq) == 1);
         assertTrue(inqDao.count()==1);
 
-        InqDto inq2 = new InqDto(2,"asd",100002,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq2 = new InqDto(2,"asd",100002,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","asdf");
         assertTrue(inqDao.insert(inq2) == 1);
         assertTrue(inqDao.count()==2);
     }
@@ -39,13 +39,13 @@ public class InqDaoImplTest {
         inqDao.deleteAll();
         assertTrue(inqDao.count()==0);
 
-        InqDto inq = new InqDto(1,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq = new InqDto(1,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","asdf");
         assertTrue(inqDao.insert(inq)==1);
 
-        InqDto inq2 = new InqDto(2,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq2 = new InqDto(2,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","adf");
         assertTrue(inqDao.insert(inq2)==1);
 
-        InqDto inq3 = new InqDto(3,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq3 = new InqDto(3,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","adf");
         assertTrue(inqDao.insert(inq3)==1);
 
         //세 개의 객체를 비교
@@ -54,7 +54,7 @@ public class InqDaoImplTest {
         assertFalse(inq2.equals(inq3));
 
         //같은 데이터를 비교
-        InqDto inqcopy = new InqDto(1, "qwer", 100001, "asdf", "qweradsf", "00000000000", "aaaa", 'N', 'N', 'N', new Date(), "1", "1");
+        InqDto inqcopy = new InqDto(1, "qwer", 100001, "asdf", "qweradsf", "00000000000", "aaaa", 'N', 'N', 'N', new Date(), "1", "1","adf");
 //        assertTrue(inq.equals(inqcopy));  // 실패
         assertFalse(inq.equals(inqcopy));
 
@@ -76,13 +76,13 @@ public class InqDaoImplTest {
         inqDao.deleteAll();
         assertTrue(inqDao.count()==0);
 
-        InqDto inq = new InqDto(1,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq = new InqDto(1,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","asdf");
         assertTrue(inqDao.insert(inq)==1);
 
-        InqDto inq2 = new InqDto(2,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq2 = new InqDto(2,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","adf");
         assertTrue(inqDao.insert(inq2)==1);
 
-        InqDto inq3 = new InqDto(3,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq3 = new InqDto(3,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","asdf");
         assertTrue(inqDao.insert(inq3)==1);
 
         // inq_id가 1인것만 삭제
@@ -107,7 +107,8 @@ public class InqDaoImplTest {
                     'N',                    // inq_is_cmpl
                     new Date(),             // inq_dt
                     "1" + i,                // inq_stat_cd
-                    "1" + i                 // inq_type_cd
+                    "1" + i,                 // inq_type_cd
+                    "asdf"                  //c_name
             );
             inqDao.insert(inq5);
 
@@ -122,13 +123,13 @@ public class InqDaoImplTest {
         inqDao.deleteAll();
         assertTrue(inqDao.count()==0);
 
-        InqDto inq = new InqDto(1,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq = new InqDto(1,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","asdf");
         assertTrue(inqDao.insert(inq)==1);
 
-        InqDto inq2 = new InqDto(2,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq2 = new InqDto(2,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","adsf");
         assertTrue(inqDao.insert(inq2)==1);
 
-        InqDto inq3 = new InqDto(3,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq3 = new InqDto(3,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","adf");
         assertTrue(inqDao.insert(inq3)==1);
 
 
@@ -146,13 +147,13 @@ public class InqDaoImplTest {
         inqDao.deleteAll();
         assertTrue(inqDao.count()==0);
 
-        InqDto inq = new InqDto(1,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq = new InqDto(1,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","asdf");
         assertTrue(inqDao.insert(inq)==1);
 
-        InqDto inq2 = new InqDto(2,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq2 = new InqDto(2,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","adf");
         assertTrue(inqDao.insert(inq2)==1);
 
-        InqDto inq3 = new InqDto(3,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1");
+        InqDto inq3 = new InqDto(3,"qwer",100001,"asdf","qweradsf","00000000000","aaaa", 'N', 'N', 'N', new Date(), "1","1","adf");
         assertTrue(inqDao.insert(inq3)==1);
 
 
