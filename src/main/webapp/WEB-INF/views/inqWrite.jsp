@@ -51,8 +51,8 @@
                         <col width="90" />
                         <col />
                     </colgroup>
-                    <tbody>
                     <form action="/product/inqWrite" method="POST" id="form">
+                    <tbody>
                         <table>
                             <tr>
                                 <th><div>NAME</div></th>
@@ -66,8 +66,10 @@
 <%--                                         <input type='hidden' name='inq_stat_cd' value="${inqDto.inq_stat_cd}"/> --%>
 <%--                                         <input type='hidden' name='inq_type_cd' value="${inqDto.inq_type_cd}"/> --%>
                                         <input type="hidden" name="pd_id" value="<%= pd_id %>">
+                                        <input type='hidden' name='inq_id' value="${inqDto.inq_id}" />
                                         <input type='hidden' name='c_name' value="${inqDto.c_id}" />
-                                        <input id='inq_bw_input_writer' type='text' name='c_name' value="${inqDto.c_name}" class="inq_MS_input_txt input_style" placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'} />
+<%--                                        <input id='inq_bw_input_writer' type='text' name='c_name' value="${inqDto.c_name}" class="inq_MS_input_txt input_style" placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'} />--%>
+                                         <input id='inq_bw_input_writer' type='text' name='c_name' value="${inqDto.c_name}" class="inq_MS_input_txt input_style" placeholder="내용을 입력해 주세요" ${mode == 'new' ? '' : 'readonly="readonly"'} />
                                     </div>
                                 </td>
                                 <th><div></div></th>
@@ -82,7 +84,7 @@
                                 <th><div>TITLE</div></th>
                                 <td colspan="3">
                                     <div class="inq_title">
-                                        <input id='inq_bw_input_subject' value="${inqDto.inq_title}" class="inq_MS_input_txt inq_input_style2" type='text' name='subject' placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>
+                                        <input id='title' name='inq_title' value="${inqDto.inq_title}" class="inq_MS_input_txt inq_input_style2" type='text'  placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>
                                     </div>
                                 </td>
                             </tr>
@@ -90,7 +92,7 @@
                                 <th><div>CONTENT</div></th>
                                 <td colspan="3">
                                     <div>
-                                        <textarea id='inq_MS_text_content' name='content' value="${inqDto.inq_content}" wrap="off" onfocus='clear_content()' class="inq_MS_input_txt" style='font-family:굴림체;' placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>${inqDto.inq_content}</textarea>
+                                        <textarea id='content' name='inq_content' rows="20" cols="100" wrap="off" onfocus='clear_content()' class="inq_MS_input_txt" style='font-family:굴림체;' placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>${inqDto.inq_content}</textarea>
                                     </div>
                                 </td>
                             </tr>
@@ -107,13 +109,15 @@
                             </tr>
                             <tr>
                                 <td colspan="4" class="inq_bbs-link-btm">
-                                    <button class="inq_button02-wh" type="submit" id="writeBtn">${mode=="new" ? "등록" : "수정"}</button>
+<%--                                    <button class="inq_button02-wh" type="submit" id="${mode=='new' ? 'writeBtn' : 'modifyBtn'}">${mode=="new" ? "등록" : "수정"}</button>--%>
+                                    <button type="button" id="writeBtn">등록</button>
+                                    <button type="button" type="submit" id="modifyBtn">수정</button>
+                                    <button type="button" id="deleteBtn">삭제</button>
                                 </td>
                             </tr>
                         </table>
-                    </form>
-
                     </tbody>
+                    </form>
                 </table>
             </fieldset>
         </div>
@@ -121,18 +125,57 @@
 </div>
 <script>
     $(document).ready(function(){
-        $('#listBtn').on("click", function(){
-            alert("listBtn click")
-            location.href="<c:url value="product/inqWrite"/>";
-        })
-    })
 
-    $('#writeBtn').on("click", function (){
-        let form = $('#form');
-        form.attr("action", "<c:url value='/product/inqWrite'/>");
-        form.attr("method", "post");
-        form.submit();
-    })
+        $('#writeBtn').on("click", function (){
+            let form = $('#form');
+            form.attr("action", "<c:url value='/product/inqWrite'/>?pd_id=${pd_id}");
+            form.attr("method", "post");
+            form.submit();
+        })
+
+        // $('#writeBtn').on("click", function() {
+        //     let form = $('#form');
+        //     form.attr('action', "/product/inqWrite");
+        //     form.attr('method', 'POST');
+        //     form.submit();
+        // });
+
+        // $(document).ready(function(){
+        //     $('#writeBtn').on("click", function (){
+        //         let form = $('#form');
+        //         form.submit();
+        //     });
+
+
+        $('#modifyBtn').on("click", function (){
+            let form = $('form');
+            let isReadOnly = $('input[name=inq_title]').attr('readonly');
+
+            if(isReadOnly=='readonly'){
+                $("input[name=inq_title]").attr('readonly', false);
+                $("textarea").attr('readonly',false);
+                $('#modifyBtn').html("등록");
+                return;
+            }
+            form.attr('action', "<c:url value='/product/modify'/>")
+            form.attr("method", "post");
+            form.submit();
+        })
+
+        $('#deleteBtn').on("click", function(){
+            if(!confirm("정말로 삭제하시겠습니까?")) return;
+            let form = $('form');
+            form.attr("action", "<c:url value='/product/remove'/>");
+            form.attr("method","post");
+            form.submit();
+        })
+
+
+        <%--$('#listBtn').on("click", function(){--%>
+        <%--    alert("listBtn click");--%>
+        <%--    location.href="<c:url value='/product/inqWrite'/>";--%>
+        <%--});--%>
+    });
 </script>
 </body>
 

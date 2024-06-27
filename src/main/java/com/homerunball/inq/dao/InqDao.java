@@ -14,7 +14,7 @@ public interface InqDao {
 
     int insert(InqDto inqDto) throws Exception;
 
-    int delete(int inq_id, int c_id) throws Exception;
+    int delete(Integer inq_id, int c_id) throws Exception;
 
     int update(InqDto inqDto) throws Exception;
 

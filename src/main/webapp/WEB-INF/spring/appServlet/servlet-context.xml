@@ -49,7 +49,7 @@
 <!--			<mapping path="/cart/**"/>-->
 			<mapping path="/payment"/>
 			<mapping path="/orderDetail"/>
-			<mapping path="/product/inqWrite"/>
+<!--			<mapping path="/product/inqWrite"/>-->
 			<beans:ref bean="custInterceptor"/>
 		</interceptor>
 	</interceptors>

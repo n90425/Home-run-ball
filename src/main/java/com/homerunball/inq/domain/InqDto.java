@@ -83,11 +83,11 @@ public class InqDto {
         this.inq_content = inq_content;
     }
 
-    public String getInt_phn() {
+    public String getInq_phn() {
         return inq_phn;
     }
 
-    public void setInt_phn(String inq_phn) {
+    public void setInq_phn(String inq_phn) {
         this.inq_phn = inq_phn;
     }
 

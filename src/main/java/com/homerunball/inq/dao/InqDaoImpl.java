@@ -42,7 +42,7 @@ public class InqDaoImpl implements InqDao {
     }
 
     @Override
-    public int delete(int inq_id,int c_id) throws Exception {
+    public int delete(Integer inq_id,int c_id) throws Exception {
         Map map = new HashMap();
         map.put("inq_id", inq_id);
         map.put("c_id", c_id);

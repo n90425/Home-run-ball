@@ -52,5 +52,14 @@
         <a href="">&gt</a></p>
     <a href="/product/inqWrite?pd_id=${pd_id}" class="writeQnABtn">문의작성</a>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('#listBtn').on("click", function(){
+            alert("listBtn click")
+            location.href="<c:url value="product/inqWrite"/>?pd_id=${pd_id}";
+        })
+    })
+</script>
 </body>
 </html>

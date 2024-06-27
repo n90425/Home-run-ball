@@ -63,10 +63,10 @@
     <update id="update" parameterType="InqDto">
         update inq
         set  inq_title = #{inq_title}
-          , inq_content = #{inq_content}
-          , inq_is_cmpl = #{inq_is_cmpl}
-          , inq_dt = #{inq_dt}
-        where inq_id = #{inq_id} and inq_title = #{inq_title}
+           , inq_content = #{inq_content}
+           , inq_is_cmpl = #{inq_is_cmpl}
+           , inq_dt = #{inq_dt}
+        where inq_id = #{inq_id} and c_id = #{c_id}
     </update>
 
 
