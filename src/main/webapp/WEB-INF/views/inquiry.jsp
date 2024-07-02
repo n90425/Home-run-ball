@@ -38,26 +38,23 @@
         </c:forEach>
         </tbody>
     </table>
-    <p> <a href="">&lt</a>
-        <a href="">1</a>
-        <a href="">2</a>
-        <a href="">3</a>
-        <a href="">4</a>
-        <a href="">5</a>
-        <a href="">6</a>
-        <a href="">7</a>
-        <a href="">8</a>
-        <a href="">9</a>
-        <a href="">10</a>
-        <a href="">&gt</a></p>
-    <a href="/product/inqWrite?pd_id=${pd_id}" class="writeQnABtn">문의작성</a>
+    <div>
+        <c:if test="${ph.showPrev}">
+            <a href="<c:url value="/product/detail?curPage=${ph.naviStart-1}&pageSize=${ph.pageSize}"/>">&lt</a>
+        </c:if>
+        <c:forEach var="i" begin="${ph.naviStart}" end="${ph.naviEnd}">
+            <a href="<c:url value="/product/detail?curPage=${i}&pageSize=${ph.pageSize}"/>">${i}</a>
+        </c:forEach>
+        <c:if test="${ph.showNext}">
+            <a href="<c:url value="/product/detail?curPage=${ph.naviEnd+1}&pageSize=${ph.pageSize}"/>">&gt</a>
+        </c:if>
+    </div>
+    <button type="button" id="wBtn" class="writeQnABtn">문의작성</button>
 </div>
-
 <script>
-    $(document).ready(function(){
-        $('#listBtn').on("click", function(){
-            alert("listBtn click")
-            location.href="<c:url value="product/inqWrite"/>?pd_id=${pd_id}";
+    $(document).ready(function (){
+        $('#wBtn').on("click", function (){
+            location.href="<c:url value='/product/inqWrite'/>?pd_id=${pd_id}";
         })
     })
 </script>

@@ -1,10 +1,131 @@
+<%--<%@ page language="java" contentType="text/html; charset=UTF-8" %>--%>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%--<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>--%>
+
+<%--<%--%>
+<%--    String pd_id = request.getParameter("pd_id");--%>
+<%--%>--%>
+
+<%--<!DOCTYPE html>--%>
+<%--<html lang="en">--%>
+<%--<head>--%>
+<%--    <meta charset="UTF-8"/>--%>
+<%--    <link rel="icon" type="image/x-icon" href="/img/icon_logo.png">--%>
+<%--    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>--%>
+<%--    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>--%>
+<%--    <link rel="preconnect" href="https://fonts.googleapis.com">--%>
+<%--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>--%>
+<%--    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">--%>
+
+<%--    <link href="<c:url value='/css/reset.css'/>" type="text/css" rel="stylesheet"/>--%>
+<%--    <link href="<c:url value='/css/inqWrite.css'/>" type="text/css" rel="stylesheet"/>--%>
+
+<%--    &lt;%&ndash;   다니님 header, footer &ndash;%&gt;--%>
+<%--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet"/>--%>
+<%--    <link href="<c:url value='/css/header.css'/>" type="text/css" rel="stylesheet"/>--%>
+<%--    <link href="<c:url value='/css/search.css'/>" type="text/css" rel="stylesheet"/>--%>
+<%--    <link href="<c:url value='/css/footer.css'/>" type="text/css" rel="stylesheet"/>--%>
+<%--    <link href="<c:url value='/css/nav.css'/>" type="text/css" rel="stylesheet"/>--%>
+
+<%--    &lt;%&ndash; jquery &ndash;%&gt;--%>
+<%--    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>--%>
+<%--    <title>QNA</title>--%>
+<%--</head>--%>
+<%--<jsp:include page="header.jsp"/>--%>
+<%--<body class="inq">--%>
+<%--<div id="contentWrapper">--%>
+<%--    <div id="contentWrap">--%>
+<%--        <div class="inq_bbs-table-write" id="inq_content">--%>
+<%--            <fieldset>--%>
+
+<%--                <script>--%>
+<%--                    let msg = "${msg}";--%>
+<%--                    if(msg=="WRT_ERR") alert("등록에 실패하였습니다.")--%>
+
+<%--                </script>--%>
+<%--                <table summary="">--%>
+<%--                    <caption>게시판 ${mode=="new" ? "작성" : "읽기"}</caption>--%>
+<%--                    <colgroup>--%>
+<%--                        <col width="95" />--%>
+<%--                        <col width="190" />--%>
+<%--                        <col width="90" />--%>
+<%--                        <col />--%>
+<%--                    </colgroup>--%>
+<%--                    <tbody>--%>
+<%--                    <form action="/product/inqWrite" id="inqform">--%>
+<%--                        <tr>--%>
+<%--                            <th><div>NAME</div></th>--%>
+<%--                            <td>--%>
+<%--                                <div>--%>
+<%--                                    &lt;%&ndash;                                    <input type="hidden" name="inq_id" value="${inqDto.inq_id}">&ndash;%&gt;--%>
+<%--                                    <input type="hidden" name="pd_id" value="<%= pd_id %>">--%>
+<%--                                    <input type='hidden' name='c_name' value="${inqDto.c_id}"  />--%>
+<%--                                    <input id='inq_bw_input_writer' type='text' name='c_name' value="${inqDto.c_name}" class="inq_MS_input_txt input_style" placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'} />--%>
+<%--                                </div>--%>
+<%--                            </td>--%>
+<%--                            <th><div></div></th>--%>
+<%--                            <td>--%>
+<%--                                <div>--%>
+<%--                                    PASSWORD <input id='inq_bw_input_passwd' type='password' name='passwd'  class="inq_MS_input_txt input_style" />--%>
+<%--                                    <font color="red">자동 잠금 기능</font>--%>
+<%--                                </div>--%>
+<%--                            </td>--%>
+<%--                        </tr>--%>
+<%--                        <tr>--%>
+<%--                            <th>--%>
+<%--                                <div>TITLE</div>--%>
+<%--                            </th>--%>
+<%--                            <td colspan="3">--%>
+<%--                                <div class="inq_title">--%>
+<%--                                    <input id='inq_bw_input_subject' value="${inqDto.inq_title}"  class="inq_MS_input_txt inq_input_style2" type='text' name='inq_title'  placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>--%>
+<%--                                    &lt;%&ndash;                                    <input type='checkbox' name='tag' value='ok'  /> HTML태그 허용<br>&ndash;%&gt;--%>
+<%--                                </div>--%>
+<%--                            </td>--%>
+<%--                        </tr>--%>
+<%--                        <tr>--%>
+<%--                            <th>--%>
+<%--                                <div>CONTENT</div>--%>
+<%--                            </th>--%>
+<%--                            <td colspan="3">--%>
+<%--                                <div>--%>
+<%--                                    <textarea id='inq_MS_text_content' name='inq_content' wrap="off" class="inq_MS_input_txt" placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>${inqDto.inq_content}</textarea>--%>
+<%--                                </div>--%>
+<%--                            </td>--%>
+<%--                        </tr>--%>
+<%--                        <tr>--%>
+<%--                            <th>--%>
+<%--                                <div>FILE</div>--%>
+<%--                            </th>--%>
+<%--                            <td colspan="3">--%>
+<%--                                <div class="title">--%>
+<%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name1' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name1');">파일첨부</a>--%>
+<%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name2' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name2');">파일첨부</a>--%>
+<%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name3' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name3');">파일첨부</a>--%>
+<%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name4' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name4');">파일첨부</a>--%>
+<%--                                </div>--%>
+<%--                            </td>--%>
+<%--                        </tr>--%>
+<%--                    </form>--%>
+<%--                    </tbody>--%>
+<%--                </table>--%>
+<%--            </fieldset>--%>
+
+<%--            <div class="inq_bbs-link-btm">--%>
+<%--                <button class="inq_button02-wh" type="button" id="writeBtn">${mode=="new" ? "등록" : "수정"}</button>--%>
+<%--                &lt;%&ndash;                    <button class="inq_button02-wh" type="button" id="modifyBtn">수정</button>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                    <button class="inq_button02-wh" type="button" id="deleteBtn">삭제</button>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                    <button class="inq_button02-wh" type="button" id="listBtn">목록</button>&ndash;%&gt;--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<%
-    String pd_id = request.getParameter("pd_id");
-%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +157,7 @@
 <div id="contentWrapper">
     <div id="contentWrap">
         <div class="inq_bbs-table-write" id="inq_content">
+            <form action="/product/inqWrite" id="inqform">
             <fieldset>
 
                 <script>
@@ -43,6 +165,7 @@
                     if(msg=="WRT_ERR") alert("등록에 실패하였습니다.")
 
                 </script>
+
                 <table summary="">
                     <caption>게시판 ${mode=="new" ? "작성" : "읽기"}</caption>
                     <colgroup>
@@ -51,104 +174,114 @@
                         <col width="90" />
                         <col />
                     </colgroup>
-                    <form action="/product/inqWrite" method="POST" id="form">
                     <tbody>
-                        <table>
-                            <tr>
-                                <th><div>NAME</div></th>
-                                <td>
-                                    <div>
-<%--                                         Hidden inputs were commented out, uncomment them if necessary --%>
-<%--                                         <input type='hidden' name='inq_phn' value="${inqDto.inq_phn}"/> --%>
-<%--                                         <input type='hidden' name='inq_is_sent' value="${inqDto.inq_is_sent}"/> --%>
-<%--                                         <input type='hidden' name='inq_is_show' value="${inqDto.inq_is_show}"/> --%>
-<%--                                         <input type='hidden' name='inq_is_cmpl' value="${inqDto.inq_is_cmpl}"/> --%>
-<%--                                         <input type='hidden' name='inq_stat_cd' value="${inqDto.inq_stat_cd}"/> --%>
-<%--                                         <input type='hidden' name='inq_type_cd' value="${inqDto.inq_type_cd}"/> --%>
-                                        <input type="hidden" name="pd_id" value="<%= pd_id %>">
-                                        <input type='hidden' name='inq_id' value="${inqDto.inq_id}" />
-                                        <input type='hidden' name='c_name' value="${inqDto.c_id}" />
-<%--                                        <input id='inq_bw_input_writer' type='text' name='c_name' value="${inqDto.c_name}" class="inq_MS_input_txt input_style" placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'} />--%>
-                                         <input id='inq_bw_input_writer' type='text' name='c_name' value="${inqDto.c_name}" class="inq_MS_input_txt input_style" placeholder="내용을 입력해 주세요" ${mode == 'new' ? '' : 'readonly="readonly"'} />
-                                    </div>
-                                </td>
-                                <th><div></div></th>
-                                <td>
-<%--                                    <div>--%>
-<%--                                        PASSWORD <input id='inq_bw_input_passwd' type='password' name='passwd' class="inq_MS_input_txt input_style" />--%>
-<%--                                        <font color="red">자동 잠금 기능</font>--%>
-<%--                                    </div>--%>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th><div>TITLE</div></th>
-                                <td colspan="3">
-                                    <div class="inq_title">
-                                        <input id='title' name='inq_title' value="${inqDto.inq_title}" class="inq_MS_input_txt inq_input_style2" type='text'  placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th><div>CONTENT</div></th>
-                                <td colspan="3">
-                                    <div>
-                                        <textarea id='content' name='inq_content' rows="20" cols="100" wrap="off" onfocus='clear_content()' class="inq_MS_input_txt" style='font-family:굴림체;' placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>${inqDto.inq_content}</textarea>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th><div>FILE</div></th>
-                                <td colspan="3">
-                                    <div class="title">
-                                        <input type='text' class="inq_MS_input_txt input_style2" name='file_name1' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name1');">파일첨부</a>
-                                        <input type='text' class="inq_MS_input_txt input_style2" name='file_name2' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name2');">파일첨부</a>
-                                        <input type='text' class="inq_MS_input_txt input_style2" name='file_name3' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name3');">파일첨부</a>
-                                        <input type='text' class="inq_MS_input_txt input_style2" name='file_name4' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name4');">파일첨부</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4" class="inq_bbs-link-btm">
-<%--                                    <button class="inq_button02-wh" type="submit" id="${mode=='new' ? 'writeBtn' : 'modifyBtn'}">${mode=="new" ? "등록" : "수정"}</button>--%>
-                                    <button type="button" id="writeBtn">등록</button>
-                                    <button type="button" type="submit" id="modifyBtn">수정</button>
-                                    <button type="button" id="deleteBtn">삭제</button>
-                                </td>
-                            </tr>
-                        </table>
+
+                        <tr>
+                            <th><div>NAME</div></th>
+                            <td>
+                                <div>
+                                    <input type="hidden" name="inq_id" value="${inqDto.inq_id}"/>
+                                    <input type="hidden" name="pd_id" value="${inqDto.pd_id}"/>
+<%--                                    <input type="hidden" name="pd_id" value="<%= pd_id %>"/>--%>
+                                    <input type='hidden' name='c_name' value="${inqDto.c_id}"/>
+                                    <input id='inq_bw_input_writer' type='text' name='c_name' value="${inqDto.c_name}" class="inq_MS_input_txt input_style" placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}/>
+                                </div>
+                            </td>
+                            <th><div></div></th>
+                            <td>
+                                <div>
+                                    PASSWORD <input id='inq_bw_input_passwd' type='password' name='passwd'  class="inq_MS_input_txt input_style" />
+                                    <font color="red">자동 잠금 기능</font>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div>TITLE</div>
+                            </th>
+                            <td colspan="3">
+                                <div class="inq_title">
+                                    <input id='inq_bw_input_subject' value="${inqDto.inq_title}"  class="inq_MS_input_txt inq_input_style2" type='text' name='inq_title'  placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}/>
+                                    <%--                                    <input type='checkbox' name='tag' value='ok'  /> HTML태그 허용<br>--%>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div>CONTENT</div>
+                            </th>
+                            <td colspan="3">
+                                <div>
+                                    <textarea id='inq_MS_text_content' name='inq_content' wrap="off" class="inq_MS_input_txt" placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}>${inqDto.inq_content}</textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div>FILE</div>
+                            </th>
+                            <td colspan="3">
+                                <div class="title">
+                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name1' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name1');">파일첨부</a>
+                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name2' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name2');">파일첨부</a>
+                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name3' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name3');">파일첨부</a>
+                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name4' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name4');">파일첨부</a>
+                                </div>
+                            </td>
+                        </tr>
+
                     </tbody>
-                    </form>
                 </table>
+
             </fieldset>
+
+            <div class="inq_bbs-link-btm">
+<%--                    <button class="inq_button02-wh" type="button" id="writeBtn">${mode=="new" ? "등록" : "수정"}</button>--%>
+                    <button class="inq_button02-wh" type="button" id="writeBtn">등록</button>
+                    <button class="inq_button02-wh" type="button" id="modifyBtn">수정</button>
+                    <button class="inq_button02-wh" type="button" id="deleteBtn">삭제</button>
+                    <button class="inq_button02-wh" type="button" id="inqlistBtn">목록</button>
+            </div>
+            </form>
+
         </div>
     </div>
 </div>
+
+
+
+
+<%--                    <button class="inq_button02-wh" type="button" id="writeBtn">${mode=="new" ? "등록" : "수정"}</button>--%>
+
+<%--                    <button class="inq_button02-wh" type="button" id="${mode=='new' ? 'writeBtn' : 'modifyBtn'}">${mode=='new' ? '등록' : '수정'}</button>--%>
+<%--                    <button class="inq_button02-wh" type="button" id="deleteBtn">삭제</button>--%>
+
+
+<%--            <div class="inq_bbs-link-btm">--%>
+<%--                <button class="inq_button02-wh" type="button" id="${mode=='new' ? 'writeBtn' : 'modifyBtn'}">${mode=='new' ? '등록' : '수정'}</button>--%>
+<%--&lt;%&ndash;                <button type="button" id="writeBtn">등록</button>&ndash;%&gt;--%>
+<%--                <button type="button" id="modifyBtn">수정</button>--%>
+<%--                <button type="button" id="deleteBtn">삭제</button>--%>
+<%--                &lt;%&ndash;                    <button class="inq_button02-wh" type="button" id="listBtn">목록</button>&ndash;%&gt;--%>
+<%--            </div>--%>
+
 <script>
     $(document).ready(function(){
-
-        $('#writeBtn').on("click", function (){
-            let form = $('#form');
-            form.attr("action", "<c:url value='/product/inqWrite'/>?pd_id=${pd_id}");
-            form.attr("method", "post");
-            form.submit();
+        $('#inqlistBtn').on("click", function(){
+            alert("listBtn click")
+            location.href="<c:url value='/product/detail'/>?pd_id=${inqDto.pd_id}"
         })
 
-        // $('#writeBtn').on("click", function() {
-        //     let form = $('#form');
-        //     form.attr('action', "/product/inqWrite");
-        //     form.attr('method', 'POST');
-        //     form.submit();
-        // });
-
-        // $(document).ready(function(){
-        //     $('#writeBtn').on("click", function (){
-        //         let form = $('#form');
-        //         form.submit();
-        //     });
+        $('#writeBtn').on("click", function (){
+            let form = $('#inqform');
+            form.attr('action', "<c:url value='/product/inqWrite'/>");
+            form.attr("method", "post");
+            form.submit();
+        });
 
 
         $('#modifyBtn').on("click", function (){
-            let form = $('form');
+            let form = $('#inqform');
             let isReadOnly = $('input[name=inq_title]').attr('readonly');
 
             if(isReadOnly=='readonly'){
@@ -164,18 +297,18 @@
 
         $('#deleteBtn').on("click", function(){
             if(!confirm("정말로 삭제하시겠습니까?")) return;
-            let form = $('form');
+            let form = $('#inqform');
             form.attr("action", "<c:url value='/product/remove'/>");
             form.attr("method","post");
             form.submit();
         })
-
 
         <%--$('#listBtn').on("click", function(){--%>
         <%--    alert("listBtn click");--%>
         <%--    location.href="<c:url value='/product/inqWrite'/>";--%>
         <%--});--%>
     });
+
 </script>
 </body>
 

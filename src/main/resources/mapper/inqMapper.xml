@@ -31,14 +31,14 @@
 
     <!-- 제품상세 페이지에서 전체 가져오기 -->
     <select id="selectAll" parameterType="String" resultType="InqDto">
-        select inq.inq_id
-             , inq.pd_id
-             , inq.c_id
-             , inq.inq_title
-             , inq.inq_content
-             , inq.inq_is_cmpl
-             , inq.inq_dt
-             , cust.c_name
+        select inq.inq_id,
+               inq.pd_id,
+               inq.c_id,
+               inq.inq_title,
+               inq.inq_content,
+               inq.inq_is_cmpl,
+               inq.inq_dt,
+               cust.c_name
         from inq
         join cust on inq.c_id = cust.c_id
         where inq.pd_id = #{pd_id}
@@ -47,7 +47,7 @@
 
     <insert id="insert" parameterType="InqDto">
         insert into inq
-        (inq_id, pd_id, c_id, inq_title, inq_content,  inq_dt)
+        (inq_id, pd_id, c_id, inq_title, inq_content, inq_dt)
         values
             (#{inq_id}, #{pd_id}, #{c_id}, #{inq_title}, #{inq_content}, #{inq_dt})
     </insert>
@@ -68,6 +68,24 @@
            , inq_dt = #{inq_dt}
         where inq_id = #{inq_id} and c_id = #{c_id}
     </update>
+
+    <select id="selectPage" parameterType="map" resultType="InqDto">
+        select inq_id
+             , pd_id
+             , c_id
+             , inq_title
+             , inq_content
+             , inq_phn
+             , inq_attch_name
+             , inq_is_sent
+             , inq_is_show
+             , inq_is_cmpl
+             , inq_dt
+             , inq_stat_cd
+             , inq_type_cd
+        from inq
+        LIMIT #{offset}, #{pageSize}
+    </select>
 
 
 </mapper>

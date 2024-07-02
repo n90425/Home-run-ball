@@ -19,4 +19,6 @@ public interface InqDao {
     int update(InqDto inqDto) throws Exception;
 
     int deleteAll() throws Exception;
+
+    List<InqDto> selectPage(Map map) throws Exception;
 }

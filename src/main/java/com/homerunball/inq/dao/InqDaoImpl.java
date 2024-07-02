@@ -33,7 +33,7 @@ public class InqDaoImpl implements InqDao {
     /*제품상세 페이지에서 전체 가져오기*/
     @Override
     public List<InqDto> selectAll(String pd_id) throws Exception {
-        return session.selectList(namespace+"selectAll",pd_id);
+        return session.selectList(namespace + "selectAll", pd_id);
     }
 
     @Override
@@ -58,6 +58,11 @@ public class InqDaoImpl implements InqDao {
     @Override
     public int deleteAll() throws Exception {
         return session.delete(namespace+"deleteAll");
+    }
+
+    @Override
+    public List<InqDto> selectPage(Map map) throws Exception{
+        return session.selectList(namespace+"selectPage", map);
     }
 
 }

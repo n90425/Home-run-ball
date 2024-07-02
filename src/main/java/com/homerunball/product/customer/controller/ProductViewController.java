@@ -2,6 +2,7 @@ package com.homerunball.product.customer.controller;
 
 import com.homerunball.inq.dao.InqDao;
 import com.homerunball.inq.domain.InqDto;
+import com.homerunball.inq.domain.PageHandler;
 import com.homerunball.product.customer.domain.ProductViewDto;
 import com.homerunball.product.customer.domain.StockViewDto;
 import com.homerunball.product.customer.service.ProductViewService;
@@ -28,44 +29,60 @@ public class ProductViewController {
     InqDao inqDao;
 
     @GetMapping("/detail")
-    public String item(HttpServletRequest request, Model m) {
+    public String item(HttpServletRequest request, Model m, Integer page, Integer pageSize) {
         try {
             String pd_id = request.getParameter("pd_id");
             String pd_clsf_cd = request.getParameter("pd_clsf_cd");
+//            System.out.println("Received pd_id: " + pd_id);
 
+            // 기타 서비스 호출
             ProductViewDto prd = productViewService.read(pd_id);
             StockViewDto stkInfo = productViewService.readStkInfo(pd_id);
             List<ProductViewDto> listPrd = productViewService.getList();
             StockViewDto stkOptInfo = productViewService.readStkOptInfo(pd_id, pd_clsf_cd);
             List<StockViewDto> listStkOpt = productViewService.getListStkId(pd_id);
 
-            /* 문의 list 가져오기 (안중섭) */
+            if(page == null) page=1;
+            if(pageSize==null) pageSize=10;
+
+
+            // 문의 리스트 가져오기
             List<InqDto> inqList = inqDao.selectAll(pd_id);
-//            System.out.println("inqList" + inqList);
+//            System.out.println("inqList: " + inqList);
+
+            int totalCnt = inqDao.count();
+            PageHandler pageHandler = new PageHandler(totalCnt, page, pageSize);
+
+                Map map = new HashMap();
+                map.put("offset", (page - 1) * pageSize);
+                map.put("pageSize", pageSize);
 
 
-            //pd_id를 받아와서 db에 해당 제품이 존재하는지 조회
+            List<InqDto> pageList = inqDao.selectPage(map);
+            // pd_id를 통해 제품이 존재하는지 확인
             boolean exists = listPrd.stream().anyMatch(product -> product.getPd_id().equals(pd_id));
-            //제품이 존재하고, pd_id와 일치하는 제품이 있는경우 제품에 필요한 정보를 model로 넘기고 제품상세로 이동
+//            System.out.println("Product exists: " + exists);
+
             if (prd != null && exists) {
                 m.addAttribute("prd", prd);
                 m.addAttribute("stkInfo", stkInfo);
                 m.addAttribute("stkOptInfo", stkOptInfo);
                 m.addAttribute("listStkOpt", listStkOpt);
-
                 m.addAttribute("pd_id", pd_id);
                 m.addAttribute("inqList", inqList);
+                m.addAttribute("pageList", pageList);
+                m.addAttribute("ph", pageHandler);
+
+                System.out.println("ph" + pageHandler);
                 return "productDetail";
             } else {
-                // 제품이 존재하지 않거나, pd_id가 일치하지 않는 경우 고객 에러페이지로 이동
                 m.addAttribute("errorMessage", "제품이 존재하지 않습니다.");
                 return "errorPageCust";
             }
         } catch (Exception e) {
-            //다른 문제인 경우, 에러 메세지를 넘기고, stackTrace 호출
             e.printStackTrace();
-            m.addAttribute("errorMessage", "제품 상세페이지를 로드중 에러가 발생했습니다.");
-            return "errorPageCust"; // 에러 페이지로 이동
+            m.addAttribute("errorMessage", "제품 상세페이지를 로드 중 에러가 발생했습니다.");
+            return "errorPageCust";
         }
     }
 
