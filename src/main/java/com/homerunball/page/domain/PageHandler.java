@@ -1,19 +1,19 @@
-package com.homerunball.inq.domain;
+package com.homerunball.page.domain;
 
 
 import com.homerunball.admin.stock.domain.SearchCondition;
 import org.springframework.web.util.UriComponentsBuilder;
 
 public class PageHandler {
-   private int totalCnt; // 게시물의 총 갯수
-   private int pageSize;
-   private int naviSize = 10; // 한 페이지당 게시물 갯수
-   private int totalPage;
-   private int page;
-   private int beginPage;
-   private int endPage;
-   private boolean showePrev;
-   private boolean showNext;
+   private int totalCnt;    // 게시물의 총 갯수
+   private int pageSize;    //한 페이지의 크기
+   private int naviSize = 10; // 페이지 네비게이션의 크기
+   private int totalPage;   //전체 페이지의 갯수
+   private int page;        //현재 페이지
+   private int beginPage;   //네비게이션의 첫번째 페이지
+   private int endPage;     //네비게이션의 마지막 페이지
+   private boolean showPrev;// < 이전 페이지
+   private boolean showNext;// > 다음 페이지
 
 
     public PageHandler(int totalCnt, int page) {
@@ -28,7 +28,7 @@ public class PageHandler {
         totalPage = (int)Math.ceil(totalCnt / (double)pageSize);
         beginPage = page / naviSize * naviSize + 1;
         endPage = Math.min(beginPage + naviSize -1, totalPage);
-        showePrev = beginPage != 1;
+        showPrev = beginPage != 1;
         showNext = endPage != totalPage;
     }
 
@@ -88,12 +88,12 @@ public class PageHandler {
         this.endPage = endPage;
     }
 
-    public boolean isShowePrev() {
-        return showePrev;
+    public boolean isShowPrev() {
+        return showPrev;
     }
 
-    public void setShowePrev(boolean showePrev) {
-        this.showePrev = showePrev;
+    public void setShowPrev(boolean showPrev) {
+        this.showPrev = showPrev;
     }
 
     public boolean isShowNext() {
@@ -106,7 +106,7 @@ public class PageHandler {
 
     void print(){
         System.out.println("page = " + page);
-        System.out.print(showePrev ? "[PREV]" : "");
+        System.out.print(showPrev ? "[PREV]" : "");
         for( int i = beginPage; i <= endPage; i++){
             System.out.print(i + " ");
         }
@@ -123,7 +123,7 @@ public class PageHandler {
                 ", page=" + page +
                 ", beginPage=" + beginPage +
                 ", endPage=" + endPage +
-                ", showePrev=" + showePrev +
+                ", showPrev=" + showPrev +
                 ", showNext=" + showNext +
                 '}';
     }

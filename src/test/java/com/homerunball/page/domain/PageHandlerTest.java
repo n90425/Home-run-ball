@@ -1,5 +1,6 @@
-package com.homerunball.inq.domain;
+package com.homerunball.page.domain;
 
+import com.homerunball.page.domain.PageHandler;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

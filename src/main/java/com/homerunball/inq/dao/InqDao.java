@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface InqDao {
-    int count() throws Exception;
+    int count(String pd_id) throws Exception;
     InqDto select(String pd_id, Integer inq_id) throws Exception;
 
     List<InqDto> selectAll(String pd_id) throws Exception;

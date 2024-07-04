@@ -16,8 +16,8 @@ public class InqDaoImpl implements InqDao {
     private static String namespace = "com.homerunball.inq.dao.InqDao.";
 
     @Override
-    public int count() throws Exception {
-        return session.selectOne(namespace+"count");
+    public int count(String pd_id) throws Exception {
+        return session.selectOne(namespace+"count", pd_id);
     }
 
 
@@ -60,9 +60,9 @@ public class InqDaoImpl implements InqDao {
         return session.delete(namespace+"deleteAll");
     }
 
-    @Override
     public List<InqDto> selectPage(Map map) throws Exception{
         return session.selectList(namespace+"selectPage", map);
     }
+
 
 }
