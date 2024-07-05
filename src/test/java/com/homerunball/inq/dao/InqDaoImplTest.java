@@ -168,4 +168,5 @@ public class InqDaoImplTest {
         System.out.println(inq2);
         System.out.println(inq3);
     }
+
 }

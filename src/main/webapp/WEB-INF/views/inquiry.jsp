@@ -40,13 +40,13 @@
     </table>
     <div>
         <c:if test="${ph.showPrev}">
-        <a href="<c:url value='/product/detail?page=${ph.beginPage-1}&pageSize=${ph.pageSize}&pd_id=${pd_id}'/>&lt</a>
+        <a href="<c:url value='/product/detail?page=${ph.beginPage-1}&pageSize=${ph.pageSize}&pd_id=${pd_id}'/>">&lt;</a>
         </c:if>
     <c:forEach var="i" begin="${ph.beginPage}" end="${ph.endPage}">
         <a href="<c:url value='/product/detail?page=${i}&pageSize=${ph.pageSize}&pd_id=${pd_id}'/>">${i}</a>
         </c:forEach>
         <c:if test="${ph.showNext}">
-        <a href="<c:url value='/product/detail?page=${ph.endPage+1}&pageSize=${ph.pageSize}&pd_id=${pd_id}'/>&gt</a>
+        <a href="<c:url value='/product/detail?page=${ph.endPage+1}&pageSize=${ph.pageSize}&pd_id=${pd_id}'/>">&gt;</a>
     </c:if>
 
     <button type=" button" id="wBtn" class="writeQnABtn">문의작성</button>
