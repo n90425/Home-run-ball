@@ -57,7 +57,7 @@ public class ProductViewController {
 
             List<InqDto> pageList = inqDao.selectPage(map);
             // pd_id를 통해 제품이 존재하는지 확인
-            System.out.println(pageList);
+//            System.out.println(pageList);
 
             boolean exists = listPrd.stream().anyMatch(product -> product.getPd_id().equals(pd_id));
 //            제품이 존재하고, pd_id와 일치하는 제품이 있는경우 제품에 필요한 정보를 model로 넘기고 제품상세로 이동
@@ -73,7 +73,7 @@ public class ProductViewController {
                 m.addAttribute("pageList", pageList);
                 m.addAttribute("ph", pageHandler);
 
-                System.out.println("ph" + pageHandler);
+//                System.out.println("ph" + pageHandler);
                 return "productDetail";
             } else {
 //                제품이 존재하지 않거나, pd_id가 일치하지 않는 경우 고객 에러페이지로 이동

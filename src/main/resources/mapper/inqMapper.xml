@@ -48,9 +48,9 @@
 
     <insert id="insert" parameterType="InqDto">
         insert into inq
-        (inq_id, pd_id, c_id, inq_title, inq_content, inq_dt)
+        (inq_id, pd_id, c_id, inq_title, inq_content, inq_attch_name, inq_dt)
         values
-            (#{inq_id}, #{pd_id}, #{c_id}, #{inq_title}, #{inq_content}, #{inq_dt})
+            (#{inq_id}, #{pd_id}, #{c_id}, #{inq_title}, #{inq_content}, #{inq_attch_name}, #{inq_dt})
     </insert>
 
     <delete id="delete">

@@ -164,9 +164,9 @@ public class InqDaoImplTest {
         assertTrue(inqDao.update(inq2) == 1);
         assertTrue(inqDao.update(inq3) == 1);
 
-        System.out.println(inq1);
-        System.out.println(inq2);
-        System.out.println(inq3);
+//        System.out.println(inq1);
+//        System.out.println(inq2);
+//        System.out.println(inq3);
     }
 
 }

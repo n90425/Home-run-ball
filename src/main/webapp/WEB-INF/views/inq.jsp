@@ -157,7 +157,7 @@
 <div id="contentWrapper">
     <div id="contentWrap">
         <div class="inq_bbs-table-write" id="inq_content">
-            <form action="/product/inqWrite" id="inqform">
+
             <fieldset>
 
                 <script>
@@ -175,15 +175,15 @@
                         <col />
                     </colgroup>
                     <tbody>
-
+                    <form action="" id="inqform">
                         <tr>
                             <th><div>NAME</div></th>
                             <td>
                                 <div>
                                     <input type="hidden" name="inq_id" value="${inqDto.inq_id}"/>
                                     <input type="hidden" name="pd_id" value="${inqDto.pd_id}"/>
-<%--                                    <input type="hidden" name="pd_id" value="<%= pd_id %>"/>--%>
-                                    <input type='hidden' name='c_name' value="${inqDto.c_id}"/>
+
+                                    <input type='hidden' name='c_id' value="${inqDto.c_id}"/>
                                     <input id='inq_bw_input_writer' type='text' name='c_name' value="${inqDto.c_name}" class="inq_MS_input_txt input_style" placeholder="내용을 입력해 주세요" ${mode=="new" ? '' :'readonly="readonly"'}/>
                                 </div>
                             </td>
@@ -222,34 +222,33 @@
                             </th>
                             <td colspan="3">
                                 <div class="title">
-                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name1' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name1');">파일첨부</a>
-                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name2' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name2');">파일첨부</a>
-                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name3' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name3');">파일첨부</a>
-                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name4' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name4');">파일첨부</a>
+                                    <p>이미지 <input type="file" name="file" value="${inqDto.inq_attch_name}"></p>
+                                    <img src="/uploads/${inqDto.inq_attch_name}" alt="업로드된 이미지" style="max-width: 10%; height: 20%;">
+<%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name1' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name1');">파일첨부</a>--%>
+<%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name2' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name2');">파일첨부</a>--%>
+<%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name3' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name3');">파일첨부</a>--%>
+<%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name4' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name4');">파일첨부</a>--%>
                                 </div>
                             </td>
                         </tr>
-
+                    </form>
                     </tbody>
                 </table>
 
             </fieldset>
 
             <div class="inq_bbs-link-btm">
-<%--                    <button class="inq_button02-wh" type="button" id="writeBtn">${mode=="new" ? "등록" : "수정"}</button>--%>
-                    <button class="inq_button02-wh" type="button" id="writeBtn">등록</button>
-                    <button class="inq_button02-wh" type="button" id="modifyBtn">수정</button>
+                    <button class="inq_button02-wh" type="button" id="${mode=='new' ? 'writeBtn' : 'modifyBtn'}">${mode=='new' ? '등록' : '수정'}</button>
+<%--                    <button class="inq_button02-wh" type="button" id="writeBtn">등록</button>--%>
+<%--                    <button class="inq_button02-wh" type="button" id="modifyBtn">수정</button>--%>
                     <button class="inq_button02-wh" type="button" id="deleteBtn">삭제</button>
                     <button class="inq_button02-wh" type="button" id="inqlistBtn">목록</button>
             </div>
-            </form>
+
 
         </div>
     </div>
 </div>
-
-
-
 
 <%--                    <button class="inq_button02-wh" type="button" id="writeBtn">${mode=="new" ? "등록" : "수정"}</button>--%>
 
@@ -274,7 +273,8 @@
 
         $('#writeBtn').on("click", function (){
             let form = $('#inqform');
-            form.attr('action', "<c:url value='/product/inqWrite'/>");
+            form.attr('action', "<c:url value='/product/inq'/>");
+            form.attr('enctype', "multipart/form-data");
             form.attr("method", "post");
             form.submit();
         });
@@ -287,7 +287,7 @@
             if(isReadOnly=='readonly'){
                 $("input[name=inq_title]").attr('readonly', false);
                 $("textarea").attr('readonly',false);
-                $('#modifyBtn').html("등록");
+                $('#modifyBtn').html("수정등록");
                 return;
             }
             form.attr('action', "<c:url value='/product/modify'/>")
@@ -303,10 +303,6 @@
             form.submit();
         })
 
-        <%--$('#listBtn').on("click", function(){--%>
-        <%--    alert("listBtn click");--%>
-        <%--    location.href="<c:url value='/product/inqWrite'/>";--%>
-        <%--});--%>
     });
 
 </script>

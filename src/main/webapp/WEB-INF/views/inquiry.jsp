@@ -55,7 +55,7 @@
 <script>
     $(document).ready(function () {
         $('#wBtn').on("click", function () {
-            location.href = "<c:url value='/product/inqWrite'/>?pd_id=${pd_id}";
+            location.href = "<c:url value='/product/inq'/>?pd_id=${pd_id}";
         })
     })
 </script>
