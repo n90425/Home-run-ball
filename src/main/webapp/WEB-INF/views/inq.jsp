@@ -249,21 +249,6 @@
         </div>
     </div>
 </div>
-
-<%--                    <button class="inq_button02-wh" type="button" id="writeBtn">${mode=="new" ? "등록" : "수정"}</button>--%>
-
-<%--                    <button class="inq_button02-wh" type="button" id="${mode=='new' ? 'writeBtn' : 'modifyBtn'}">${mode=='new' ? '등록' : '수정'}</button>--%>
-<%--                    <button class="inq_button02-wh" type="button" id="deleteBtn">삭제</button>--%>
-
-
-<%--            <div class="inq_bbs-link-btm">--%>
-<%--                <button class="inq_button02-wh" type="button" id="${mode=='new' ? 'writeBtn' : 'modifyBtn'}">${mode=='new' ? '등록' : '수정'}</button>--%>
-<%--&lt;%&ndash;                <button type="button" id="writeBtn">등록</button>&ndash;%&gt;--%>
-<%--                <button type="button" id="modifyBtn">수정</button>--%>
-<%--                <button type="button" id="deleteBtn">삭제</button>--%>
-<%--                &lt;%&ndash;                    <button class="inq_button02-wh" type="button" id="listBtn">목록</button>&ndash;%&gt;--%>
-<%--            </div>--%>
-
 <script>
     $(document).ready(function(){
         $('#inqlistBtn').on("click", function(){

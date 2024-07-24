@@ -24,8 +24,8 @@ public class InqController {
     @Autowired
     InqDao inqDao;
 
-    @Value("#{properties['upload.path']}")
-    private String uploadPath;
+//    @Value("#{properties['upload.path']}")
+//    private String uploadPath;
 
     @GetMapping("/read")
     public String read(String pd_id, Integer inq_id, Model m, HttpSession session) {
