@@ -224,9 +224,14 @@
         </div><br>
 
         <div class="buttonContainer">
-        <div class="subBtn" id="googleBtn" onclick="test()"> <img id="google" src="https://cdn-icons-png.flaticon.com/128/300/300221.png" width="40" height="40"></div>
-            <div class="subBtn" id="kakaoBtn" onclick="test()"> <img id="kakao" src="https://cdn-icons-png.flaticon.com/128/3669/3669973.png" width="40" height="40"></div>
-                <div class="subBtn" id="appleBtn" onclick="test()"> <img id="apple" src="https://cdn-icons-png.flaticon.com/128/0/747.png" width="40" height="40"></div>
+            <div class="subBtn" id="googleBtn" onclick="test()"> <img id="google" src="https://cdn-icons-png.flaticon.com/128/300/300221.png" width="40" height="40"></div>
+            <div class="subBtn" id="kakaoBtn">
+                <a href="/kakao/login">
+                    <img id="kakao" src="https://cdn-icons-png.flaticon.com/128/3669/3669973.png" width="40" height="40">
+                </a>
+            </div>
+
+            <div class="subBtn" id="appleBtn" onclick="test()"> <img id="apple" src="https://cdn-icons-png.flaticon.com/128/0/747.png" width="40" height="40"></div>
             <div class="subBtn" id="naverBtn" onclick="test()"> <img id="naver" src="/img/naverBtn.png" width="40" height="40"></div>
 
         </div>
@@ -235,6 +240,8 @@
 
     </form>
 </div>
+
+<%--<script src="https://developer.kakao.com/sdk/js/kakao.js"></script>--%>
 
 <script>
     let signUpClear = "${signUpClear}"
@@ -255,6 +262,24 @@
     function test(){
             alert("테스트중입니다!")
     }
+
+    // 22d30b8439f95c095ee1e5975bf885f9 //JavaScript키
+    // window.Kakao.init("22d30b8439f95c095ee1e5975bf885f9");
+    // function kakaoLogin(){
+    //     window.Kakao.Auth.login({
+    //         scope:'profile_nickname, account_email',
+    //         success: function (authObj){
+    //             console.log(authObj);
+    //             window.Kakao.API.request({
+    //                 url:'/v2/user/me',
+    //                 success: res => {
+    //                     const kakao_account = res.kakao_account;
+    //                     console.log(kakao_account);
+    //                 }
+    //             });
+    //         }
+    //     });
+    // }
 </script>
 
 </body>

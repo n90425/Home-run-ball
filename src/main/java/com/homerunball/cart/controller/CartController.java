@@ -167,6 +167,7 @@ public class CartController {
         try {
             /* 로그인한 고객의 c_id가 세션에있는지 확인한다 */
             int c_id = (int)session.getAttribute("c_id");
+            System.out.println(c_id);
 
             /* cart에있는 c_id를가진 고객의 장바구니를 list에 담는다 */
             List<CartDto> list = cartDao.getStk(c_id);
