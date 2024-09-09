@@ -81,6 +81,7 @@ public class KakaoLogin {
 
             /* 고객정보가 DB에 없을경우 */
             custDto = new CustDto();
+            custDto.setC_id(custDto.getC_id());
             custDto.setC_email(custEmail);
             custDto.setC_pwd("");
             custDto.setC_name(custName);

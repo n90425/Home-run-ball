@@ -127,6 +127,10 @@ public class CartController {
             /* 장바구니에 담은 제품이 존재하는지 확인 */
             boolean exists = cartDao.exists(cartDto);
 
+
+            System.out.println(mn_img_fn);
+            System.out.println("exists" + cartDao);
+
             /* 존재할경우 */
             if (exists) {
                 /* cart에서 조회하고 select된 제품의 장바구니 개수를 읽어온다 */
@@ -167,7 +171,7 @@ public class CartController {
         try {
             /* 로그인한 고객의 c_id가 세션에있는지 확인한다 */
             int c_id = (int)session.getAttribute("c_id");
-            System.out.println(c_id);
+            System.out.println( c_id);
 
             /* cart에있는 c_id를가진 고객의 장바구니를 list에 담는다 */
             List<CartDto> list = cartDao.getStk(c_id);

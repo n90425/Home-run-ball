@@ -16,6 +16,11 @@
 	<resources mapping="/**" location="/resources/" />
 
 
+	<!-- 추가: 파일 업로드 경로를 위한 리소스 핸들러 설정 -->
+	<resources mapping="/uploads/**"
+			   location="file:///D:/dev/IdeaProjects/Home-run-ball/src/main/webapp/resources/uploads/"
+			   cache-period="0" />
+
 
 	<!-- Tiles -->
 	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
@@ -59,6 +64,10 @@
 			<beans:ref bean="custInterceptor"/>
 		</interceptor>
 	</interceptors>
+
+
+
+
 
 	<!--
     &lt;!&ndash; CORS Configuration &ndash;&gt;

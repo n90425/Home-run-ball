@@ -208,7 +208,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <div>CONTENT1111</div>
+                                <div>CONTENT</div>
                             </th>
                             <td colspan="3">
                                 <div>
@@ -224,11 +224,19 @@
                                 <div class="title">
                                     <p>이미지 <input type="file" name="file" value="${inqDto.inq_attch_name}"></p>
                                     <img src="/uploads/${inqDto.inq_attch_name}" alt="업로드된 이미지" style="max-width: 10%; height: 20%;">
+                                </div>
+<%--                                    <img src="/uploads/${inqDto.inq_attch_name}" id="uploadedImage" alt="업로드된 이미지" style="max-width: 10%; height: 20%;">--%>
+                                </div>
+
+<%--                                <p>이미지 <input type="file" name="file" value="${inqDto.inq_attch_name}"></p>--%>
+<%--                                <img src="/uploads/${inqDto.inq_attch_name}" alt="업로드된 이미지" style="width: 132px; height: auto;" />--%>
+
+
 <%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name1' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name1');">파일첨부</a>--%>
 <%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name2' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name2');">파일첨부</a>--%>
 <%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name3' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name3');">파일첨부</a>--%>
 <%--                                    <input type='text'  class="inq_MS_input_txt input_style2" name='file_name4' value='' onfocus='this.blur();upalert()' /><a class="button04-s-wh" href="javascript:upload('file_name4');">파일첨부</a>--%>
-                                </div>
+<%--                                </div>--%>
                             </td>
                         </tr>
                     </form>
@@ -252,7 +260,7 @@
 <script>
     $(document).ready(function(){
         $('#inqlistBtn').on("click", function(){
-            alert("listBtn click")
+            // alert("listBtn click")
             location.href="<c:url value='/product/detail'/>?pd_id=${inqDto.pd_id}"
         })
 
@@ -275,8 +283,9 @@
                 $('#modifyBtn').html("수정등록");
                 return;
             }
-            form.attr('action', "<c:url value='/product/modify'/>")
+            form.attr('action', "<c:url value='/product/modify'/>");
             form.attr("method", "post");
+            form.attr("enctype", "multipart/form-data");
             form.submit();
         })
 
@@ -289,6 +298,8 @@
         })
 
     });
+
+
 
 </script>
 </body>

@@ -60,6 +60,8 @@ public class InqDaoImpl implements InqDao {
         return session.delete(namespace+"deleteAll");
     }
 
+
+    @Override
     public List<InqDto> selectPage(Map map) throws Exception{
         return session.selectList(namespace+"selectPage", map);
     }

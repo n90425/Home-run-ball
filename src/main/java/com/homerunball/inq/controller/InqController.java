@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 @Controller
@@ -37,7 +39,7 @@ public class InqController {
 //            System.out.println("c_id" + c_id);
 //            System.out.println(inq_id);
 //            System.out.println(pd_id);
-//            System.out.println(inqDto);
+            System.out.println(inqDto);
 
             m.addAttribute(inqDto);
             m.addAttribute(inq_id);
@@ -50,48 +52,26 @@ public class InqController {
 
     private static final String UPLOAD_DIR = "D:/dev/IdeaProjects/Home-run-ball/src/main/webapp/resources/uploads/";
     @PostMapping("/inq")
-    public String inq(String pd_id, InqDto inqDto, Model m, HttpSession session, RedirectAttributes rattr, @RequestParam("file") MultipartFile file, HttpServletRequest request) {
+    public String inq(String pd_id, InqDto inqDto, Model m, HttpSession session,
+                      RedirectAttributes rattr, @RequestParam("file") MultipartFile file) {
         try {
             int c_id = (int) session.getAttribute("c_id");
+            String fileName = URLEncoder.encode(file.getOriginalFilename(), StandardCharsets.UTF_8);
+            String uniqueFileName = c_id + "_" + fileName;
+            String uploadPath = UPLOAD_DIR + uniqueFileName;
+            File dest = new File(uploadPath);
 
+            // 파일 저장
+            file.transferTo(dest);
 
-//            // 파일 저장 경로 지정
-//            String UPLOAD_DIR = "D:/dev/IdeaProjects/Home-run-ball/src/main/webapp/resources/uploads/";
-//            String uploadPath = UPLOAD_DIR + file.getOriginalFilename();
-//            File dest = new File(uploadPath);
-//            file.transferTo(dest);
-//            request.setAttribute("message", "파일 업로드 성공: " + uploadPath);
-
-            String fileName = file.getOriginalFilename();
-            String uploadPath = null;
-            String inqfile = null;
-
-            for (int i = 0; ; i++) {
-                uploadPath = UPLOAD_DIR + c_id + "_" + i + "_" + fileName;
-                inqfile = c_id + "_" + i + "_" + fileName;
-                File dest = new File(uploadPath);
-
-                // 파일이 존재하지 않으면 해당 이름 사용
-                if (!dest.exists()) {
-                    file.transferTo(dest);
-                    request.setAttribute("message", "파일 업로드 성공: " + uploadPath);
-                    System.out.println(uploadPath);
-                    break;
-                }
-            }
-
-            // inqDto에 파일 이름 설정
-            inqDto.setInq_attch_name(inqfile);
-
-            // 나머지 inqDto 설정
+            // inqDto 설정
+            inqDto.setInq_attch_name(uniqueFileName);
             inqDto.setC_id(c_id);
             inqDto.setPd_id(pd_id);
             inqDto.setInq_dt(new Date());
 
-            int rowCnt = inqDao.insert(inqDto);
-
-            if (rowCnt != 1)
-                throw new Exception("inq write err");
+            int rowCnt = inqDao.insert(inqDto); // DB에 저장
+            if (rowCnt != 1) throw new Exception("inq write error");
 
             m.addAttribute("inqDto", inqDto);
             rattr.addFlashAttribute("msg", "WRT_OK");
@@ -114,15 +94,15 @@ public class InqController {
         if (c_id == null) {
             return "redirect:/login";
         }
+
         m.addAttribute("inqDto", inqDto);
         m.addAttribute("mode", "new");
         m.addAttribute("pd_id", pd_id);
         return "inq";
     }
 
-
-
-    @PostMapping("/modify") /*글 수정*/
+    /*글 수정*/
+    @PostMapping("/modify")
     public String modify(String pd_id, Integer inq_id, InqDto inqDto, Model m, HttpSession session, @RequestParam("file") MultipartFile file) {
         try {
             int c_id = (int) session.getAttribute("c_id");
@@ -135,9 +115,9 @@ public class InqController {
 //            System.out.println("inq_title=" + inq_title);
 //            System.out.println("inq_content=" + inq_content);
 
-            System.out.println("c_id =" + c_id);
-            System.out.println("pd_id=" + pd_id);
-            System.out.println("inqDto=" + inqDto);
+            System.out.println("c_id111 =" + c_id);
+            System.out.println("pd_id222=" + pd_id);
+            System.out.println("inqDto333=" + inqDto);
 
             int rowCnt = inqDao.update(inqDto);
             if (rowCnt != 1)
